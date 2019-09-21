@@ -27,8 +27,10 @@ class Super_Admin_Controller extends Controller
 
     public function showRegistrationForm()
     {
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
         $data = DB::table('employee_designations')->get();
-        return view('admin.register',compact('data'));
+        return view('admin.register',compact(['data','propic']));
     }
 
     public function MyProfile(){
@@ -70,10 +72,12 @@ class Super_Admin_Controller extends Controller
 
     public function AdminProfiles($id){
         //$data1 = DB::table("users")->where("id", $id)->get();
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('admin.admin_profile',compact(['data1','data2','data3']));
+        return view('admin.admin_profile',compact(['data1','data2','data3','propic']));
 
     }
 
