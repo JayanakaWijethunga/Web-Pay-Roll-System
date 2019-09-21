@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  
+  
+  <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -100,10 +106,58 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    
-  @section('contents')
-@show
+  <div class="play content-wrapper">
+  <section class="content-header">
+  <center><h4 class='mains'>@yield('heading') List</h4></center>
+  </section>
+  <section class="content">
+  <div class='whole '>
+        
+        
+        <div class="pos-1">
+        
+        <div class="all container">
+        <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                
+
+                <div class="card-body">
+                    <table  class='mytable' id='myTable'>
+                    <thead>
+                    <tr>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+                
+                
+            </tr>
+                    </thead>
+                    <tbody>
+                    @section('eachraw')
+					
+                    @show
+					</tbody>
+
+                    </table>
+
+                </div>
+                </div>
+				<br/><br/>
+                @section('ngv')
+                
+                @show
+                        
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
   </div>
 
 
@@ -123,11 +177,55 @@
 
 
 
+
+</body>
+
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <script src="../dist/js/adminlte.min.js"></script>
 
-</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
+
+
+</script>
+
+
+
+<style>
+.play{
+  
+
+}
+h4 {
+	margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-weight: normal;
+	font-family: 'Ultra', sans-serif;   
+	font-size: 36px;
+	line-height: 42px;
+	text-transform: uppercase;
+	text-shadow: 0 2px white, 0 3px #777;
+}
+.all{
+    margin:0;
+    padding:0; 
+    width:1100px;
+}
+
+.pos-1{
+    
+
+}
+</style>
 </html>

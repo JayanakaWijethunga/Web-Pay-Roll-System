@@ -79,6 +79,11 @@ class Super_Admin_Controller extends Controller
 
     public function AdminRecords(){
 
+
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
+        
+
         $data = DB::table('role_users')
             ->join('users','role_users.user_id' , '=', 'users.id')
             ->join('roles', 'role_users.role_id', '=', 'roles.id')
@@ -86,7 +91,7 @@ class Super_Admin_Controller extends Controller
             ->get();
       
 
-        return view('admin.admin_records',compact('data'));
+        return view('admin.admin_records',compact(['data','propic']));
     }
 
     public function showEditBasicForm($id){
