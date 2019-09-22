@@ -35,10 +35,11 @@ class Super_Admin_Controller extends Controller
 
     public function MyProfile(){
         $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('sadmin.sadmin-myprofile',compact(['data4','data5','data6']));  
+        return view('sadmin.sadmin-myprofile',compact(['data4','data5','data6','propic']));  
 
     }
 
@@ -99,8 +100,10 @@ class Super_Admin_Controller extends Controller
     }
 
     public function showEditBasicForm($id){
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
         $basics=User_detail::find($id);
-        return view('admin.admin_basic_edit',compact('basics'));
+        return view('admin.admin_basic_edit',compact(['basics','propic']));
 
     }
 
@@ -120,7 +123,9 @@ class Super_Admin_Controller extends Controller
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('admin.admin_profile',compact(['data1','data2','data3']));
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
+        return view('admin.admin_profile',compact(['data1','data2','data3','propic']));
         
     }
 
