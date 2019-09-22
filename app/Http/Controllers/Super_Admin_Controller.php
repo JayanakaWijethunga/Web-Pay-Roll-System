@@ -123,17 +123,19 @@ class Super_Admin_Controller extends Controller
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();
-        $id=Auth::user()->id;
-        $propic=DB::table("user_details")->where("id", $id)->get();
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         return view('admin.admin_profile',compact(['data1','data2','data3','propic']));
         
     }
 
     public function showEditFinanceForm($id){
 
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
         $finance=Employee_financial::find($id);
         
-        return view('admin.admin_finance_edit',compact(['finance']));
+        return view('admin.admin_finance_edit',compact(['finance','propic']));
 
     }
 
@@ -168,10 +170,13 @@ class Super_Admin_Controller extends Controller
 
         $finanace->save();
         $ot->save();
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('admin.admin_profile',compact(['data1','data2','data3']));
+        return view('admin.admin_profile',compact(['data1','data2','data3','propic']));
         
     }
 
