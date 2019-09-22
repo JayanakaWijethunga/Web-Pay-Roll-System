@@ -82,12 +82,12 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Actions</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active">
+        <li class="">
         @section('records')
         @show
 
         <i class="fa fa-tasks"></i> <span>@yield('functions01')</span></a></li>
-        <li class="">
+        <li class="active">
         @section('myprofile')
         @show
 

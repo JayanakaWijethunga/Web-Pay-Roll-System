@@ -46,7 +46,8 @@ class Super_Admin_Controller extends Controller
     public function EditProPic(){
         $id=Auth::user()->id;
         $data = DB::table("user_details")->where("id", $id)->get();
-        return view('sadmin.sadmin-profile-pic',compact('data'));
+        $propic=DB::table("user_details")->where("id", $id)->get();
+        return view('sadmin.sadmin-profile-pic',compact('data','propic'));
 
     }
 
@@ -59,13 +60,15 @@ class Super_Admin_Controller extends Controller
             $filename=time().'.'.$avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
 
-            $propic=User_detail::find($id);
-            $propic->avatar=$filename;
+            $propic1=User_detail::find($id);
+            $propic11->avatar=$filename;
             $propic->save();
             //$office->obranch=$request->obranch;
 
             $data = DB::table("user_details")->where("id", $id)->get();
-            return view('sadmin.sadmin-profile-pic',compact('data'));
+            $id1=Auth::user()->id;
+            $propic=DB::table("user_details")->where("id", $id1)->get();
+            return view('sadmin.sadmin-profile-pic',compact('data','propic'));
 
         }
 
@@ -73,8 +76,8 @@ class Super_Admin_Controller extends Controller
 
     public function AdminProfiles($id){
         //$data1 = DB::table("users")->where("id", $id)->get();
-        $id=Auth::user()->id;
-        $propic=DB::table("user_details")->where("id", $id)->get();
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();

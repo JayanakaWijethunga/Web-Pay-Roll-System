@@ -18,7 +18,7 @@
 @endsection
 
 @section('records')
-<a href="{{ route('user.records') }}">
+<a href="{{ route('admin.records') }}">
 @endsection
 
 @section('myprofile')

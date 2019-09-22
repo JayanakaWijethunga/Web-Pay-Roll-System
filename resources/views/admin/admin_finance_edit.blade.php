@@ -14,15 +14,15 @@
 
 @section('names')
 <p>{{ Auth::user()->username }}</p>
-<a href="{{ route('admin-myprofile') }}">
+<a href="{{ route('sadmin-myprofile') }}">
 @endsection
 
 @section('records')
-<a href="{{ route('user.records') }}">
+<a href="{{ route('admin.records') }}">
 @endsection
 
 @section('myprofile')
-<a href="{{ route('admin-myprofile') }}">
+<a href="{{ route('sadmin-myprofile') }}">
 @endsection
 
 @section('functions01',"Manage Users")
