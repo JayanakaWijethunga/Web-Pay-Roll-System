@@ -1,10 +1,10 @@
 @extends('layouts.edit_basic_info')
 
-@section('title',"Admin")
+@section('title',"Super-Admin")
 
-@section('utypemin',"A")
+@section('utypemin',"SA")
 
-@section('utype',"Admin")
+@section('utype',"S-Admin")
 
 @section('avators')
 @foreach($propic as $emp)
@@ -25,7 +25,7 @@
 <a href="{{ route('sadmin-myprofile') }}">
 @endsection
 
-@section('functions01',"Manage Users")
+@section('functions01',"Manage Admins")
 
 @section('forms')
 <form class="well form-horizontal" action="/admin-basic-update/{{$basics->id}}" method="POST">

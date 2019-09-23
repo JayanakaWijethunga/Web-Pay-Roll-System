@@ -86,16 +86,21 @@ class Admin_Controller extends Controller
 
     public function UserProfiles($id){
         //$data1 = DB::table("users")->where("id", $id)->get();
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('user.user_profile',compact(['data4','data5','data6']));
+        return view('user.user_profile',compact(['data4','data5','data6','propic']));
 
     }
 
     public function showEditBasicForm($id){
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $basics=User_detail::find($id);
-        return view('user.user_basic_edit',compact('basics'));
+        return view('user.user_basic_edit',compact('basics','propic'));
 
     }
 
@@ -118,7 +123,10 @@ class Admin_Controller extends Controller
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
 
-        return view('user.user_profile',compact(['data4','data5','data6']));
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('user.user_profile',compact(['data4','data5','data6','propic']));
         
     }
 

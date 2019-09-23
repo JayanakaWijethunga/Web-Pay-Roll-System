@@ -1,10 +1,10 @@
 @extends('layouts.newprofile')
 
-@section('title',"Admin")
+@section('title',"Super-Admin")
 
-@section('utypemin',"A")
+@section('utypemin',"SA")
 
-@section('utype',"Admin")
+@section('utype',"S-Admin")
 
 @section('avators')
 @foreach($propic as $emp)
@@ -25,11 +25,15 @@
 <a href="{{ route('sadmin-myprofile') }}">
 @endsection
 
-@section('functions01',"Manage Users")
+@section('functions01',"Manage Admins")
 
 @section('title',"Admin")
 
-@section('heading',"Admin")
+@section('heading')
+	@foreach($data1 as $emp)
+	<h1>{{$emp->first_name}}'s  Profile</h1>
+    @endforeach
+@endsection
 
 @section('form_part')
    <form class="well form-horizontal" action="{{route('admin.registers')}}" method="POST">
@@ -39,11 +43,7 @@
    <a href="{{route('admin.records')}}" class="btn btn-info">Back</a>
 @endsection
 
-@section('title')
-	@foreach($data1 as $emp)
-	<title>{{$emp->first_name}}'s  Profile</title>
-    @endforeach
-@endsection
+
 
 @section('navg')
 	<div class="col-md-8 text-md-right header-buttons">

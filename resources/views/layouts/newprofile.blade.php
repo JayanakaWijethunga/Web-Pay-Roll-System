@@ -118,7 +118,11 @@
   <div class="play content-wrapper">
 
   <section class="content-header">
-  <center><h4 class='mains'>@yield('heading') List</h4></center>
+  <center>
+  @section('heading')
+				
+   @show
+  </center>
   </section>
 
   <section class="content">
