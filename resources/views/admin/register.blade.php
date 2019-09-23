@@ -14,7 +14,7 @@
 
 @section('names')
 <p>{{ Auth::user()->username }}</p>
-<a href="{{ route('admin-myprofile') }}">
+<a href="{{ route('sadmin-myprofile') }}">
 @endsection
 
 @section('records')
@@ -22,7 +22,7 @@
 @endsection
 
 @section('myprofile')
-<a href="{{ route('admin-myprofile') }}">
+<a href="{{ route('sadmin-myprofile') }}">
 @endsection
 
 @section('functions01',"Manage Admins")

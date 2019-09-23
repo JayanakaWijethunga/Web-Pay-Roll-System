@@ -89,8 +89,10 @@ class User_Controller extends Controller
             ->where('roles.name', 'employee')
             ->get();
       
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
 
-        return view('employee.employee_record',compact('data'));
+        return view('employee.employee_record',compact(['data','propic']));
     }
 
     public function EmpProfiles($id){

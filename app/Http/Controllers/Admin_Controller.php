@@ -29,8 +29,10 @@ class Admin_Controller extends Controller
 
     public function showRegistrationForm()
     {
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $data = DB::table('employee_designations')->get();
-        return view('user.register',compact('data'));
+        return view('user.register',compact(['data','propic']));
     }
 
     public function MyProfile(){

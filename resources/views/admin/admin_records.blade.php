@@ -79,7 +79,7 @@
 
 @section('ngv')
 
-        <a href="{{route('admin.registerform')}}" class="btn btn-success">Add New User</a>
+        <a href="{{route('admin.registerform')}}" class="btn btn-success">Add New Admin</a>
         <a href="{{route('sadmin.home')}}" class="btn btn-primary">Back</a>
 
 @endsection
