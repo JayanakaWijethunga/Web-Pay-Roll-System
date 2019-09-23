@@ -72,6 +72,8 @@ class Admin_Controller extends Controller
 
     public function UserRecords(){
 
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $data = DB::table('role_users')
             ->join('users','role_users.user_id' , '=', 'users.id')
             ->join('roles', 'role_users.role_id', '=', 'roles.id')
@@ -79,7 +81,7 @@ class Admin_Controller extends Controller
             ->get();
       
 
-        return view('user.user_records',compact('data'));
+        return view('user.user_records',compact(['data','propic']));
     }
 
     public function UserProfiles($id){

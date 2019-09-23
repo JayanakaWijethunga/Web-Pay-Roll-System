@@ -61,8 +61,8 @@ class Super_Admin_Controller extends Controller
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
 
             $propic1=User_detail::find($id);
-            $propic11->avatar=$filename;
-            $propic->save();
+            $propic1->avatar=$filename;
+            $propic1->save();
             //$office->obranch=$request->obranch;
 
             $data = DB::table("user_details")->where("id", $id)->get();
