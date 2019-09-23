@@ -1,10 +1,10 @@
 @extends('layouts.newprofile')
 
-@section('title',"Admin")
+@section('title',"User")
 
-@section('utypemin',"A")
+@section('utypemin',"U")
 
-@section('utype',"Admin")
+@section('utype',"User")
 
 @section('avators')
 @foreach($propic as $emp)

@@ -40,8 +40,13 @@ class User_Controller extends Controller
 
     public function showRegistrationForm()
     {
+        
+
         $data = DB::table('employee_designations')->get();
-        return view('employee.register',compact('data'));
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+        return view('employee.register',compact('data','propic'));
     }
 
     public function MyProfile(){
@@ -110,7 +115,10 @@ class User_Controller extends Controller
 
     public function showEditBasicForm($id){
         $basics=User_detail::find($id);
-        return view('employee.emp_basic_edit',compact('basics'));
+        
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+        return view('employee.emp_basic_edit',compact(['basics','propic']));
 
     }
 
@@ -133,7 +141,10 @@ class User_Controller extends Controller
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
 
-        return view('employee.emp_profile',compact(['data4','data5','data6']));
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('employee.emp_profile',compact(['data4','data5','data6','propic']));
         
     }
 
@@ -141,7 +152,9 @@ class User_Controller extends Controller
 
         $finance=Employee_financial::find($id);
         
-        return view('employee.emp_finance_edit',compact(['finance']));
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+        return view('employee.emp_finance_edit',compact(['finance','propic']));
 
     }
 
@@ -179,7 +192,11 @@ class User_Controller extends Controller
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('employee.emp_profile',compact(['data4','data5','data6']));
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('employee.emp_profile',compact(['data4','data5','data6','propic']));
         
     }
 
@@ -187,7 +204,11 @@ class User_Controller extends Controller
 
         $office=Employee_official::find($id);
         $data = DB::table('employee_designations')->get();
-        return view('employee.emp_office_edit',compact(['office','data']));
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('employee.emp_office_edit',compact(['office','data','propic']));
 
     }
 
@@ -218,7 +239,11 @@ class User_Controller extends Controller
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('employee.emp_profile',compact(['data4','data5','data6']));
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('employee.emp_profile',compact(['data4','data5','data6','propic']));
         
     }
 
