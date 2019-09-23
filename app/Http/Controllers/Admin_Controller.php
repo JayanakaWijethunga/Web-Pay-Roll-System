@@ -10,6 +10,7 @@ use App\Employee_official;
 use DB;
 use Auth;
 use Image;
+
 class Admin_Controller extends Controller
 {
 
@@ -153,9 +154,15 @@ class Admin_Controller extends Controller
     public function showEditFinanceForm($id){
 
         $finance=Employee_financial::find($id);
+        $current_ot=Employee_ot::find($id);
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
-        return view('user.user_finance_edit',compact(['finance','propic']));
+        $banks=DB::table('banks')->get();
+        $babranchs=DB::table('bank_branchs')->get();
+        $ots = DB::table('ot_data')->get();
+        
+
+        return view('user.user_finance_edit',compact(['finance','propic','banks','babranchs','current_ot','ots']));
 
     }
 
@@ -204,10 +211,13 @@ class Admin_Controller extends Controller
     public function showEditOfficeForm($id){
 
         $office=Employee_official::find($id);
+        
         $data = DB::table('employee_designations')->get();
 
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        
 
         return view('user.user_office_edit',compact(['office','data','propic']));
 

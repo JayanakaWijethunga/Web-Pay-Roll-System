@@ -140,11 +140,17 @@ class Super_Admin_Controller extends Controller
 
     public function showEditFinanceForm($id){
 
-        $id=Auth::user()->id;
-        $propic=DB::table("user_details")->where("id", $id)->get();
+
         $finance=Employee_financial::find($id);
+        $current_ot=Employee_ot::find($id);
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+        $banks=DB::table('banks')->get();
+        $babranchs=DB::table('bank_branchs')->get();
+        $ots = DB::table('ot_data')->get();
         
-        return view('admin.admin_finance_edit',compact(['finance','propic']));
+
+        return view('admin.admin_finance_edit',compact(['finance','propic','banks','babranchs','current_ot','ots']));
 
     }
 
