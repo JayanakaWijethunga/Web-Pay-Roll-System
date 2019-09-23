@@ -182,9 +182,9 @@
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
                                   <select class="selectpicker form-control" name="obranch">
                                     <option disabled="disabled" selected="selected">Select Company Branch</option>
-                                    <option >Matara</option>
-                                    <option>Colombo</option>
-                                    <option>Galle</option>
+                                    @foreach($cbranchs as $cbranch)
+                                    <option>{{$cbranch->company_branch}}</option>
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('obranch'))
@@ -202,9 +202,9 @@
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
                                   <select class="selectpicker form-control" name="dept">
                                     <option disabled="disabled" selected="selected">Select the Department</option>
-                                    <option>Design</option>
-                                    <option>Develop</option>
-                                    <option>Testing</option>
+                                    @foreach($deps as $dep)
+                                    <option>{{$dep->department}}</option>
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('dept'))
@@ -280,8 +280,9 @@
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-usd"></i></span>
                                   <select class="selectpicker form-control" name="ot">
                                     <option disabled="disabled" selected="selected">Is OT Pay Allowed</option>
-                                    <option >Yes</option>
-                                    <option>No</option>
+                                    @foreach($ots as $ot)
+                                    <option>{{$ot->is_ot_allow}}</option>
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('ot'))
@@ -299,9 +300,9 @@
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-home"></i></span>
                                   <select class="selectpicker form-control" name="bank">
                                     <option disabled="disabled" selected="selected">Select the Bank</option>
-                                    <option>BOC</option>
-                                    <option>NSB</option>
-                                    <option>HND</option>
+                                    @foreach($banks as $bank)
+                                    <option>{{$bank->bank_name}}</option>
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('bank'))
@@ -319,9 +320,9 @@
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-home"></i></span>
                                   <select class="selectpicker form-control" name="bbranch">
                                     <option disabled="disabled" selected="selected">Select the Branch</option>
-                                    <option>Matara</option>
-                                    <option>Colombo</option>
-                                    <option>Galle</option>
+                                    @foreach($babranchs as $babranch)
+                                    <option>{{$babranch->branch_name}}</option>
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('bbranch'))

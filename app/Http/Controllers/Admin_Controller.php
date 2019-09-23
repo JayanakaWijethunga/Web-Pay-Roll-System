@@ -32,7 +32,12 @@ class Admin_Controller extends Controller
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
         $data = DB::table('employee_designations')->get();
-        return view('user.register',compact(['data','propic']));
+        $deps = DB::table('employee_department')->get();
+        $cbranchs = DB::table('employee_branch')->get();
+        $ots = DB::table('ot_data')->get();
+        $babranchs = DB::table('bank_branchs')->get();
+        $banks = DB::table('banks')->get();
+        return view('user.register',compact(['data','propic','deps','cbranchs','ots','babranchs','banks']));
     }
 
     public function MyProfile(){
