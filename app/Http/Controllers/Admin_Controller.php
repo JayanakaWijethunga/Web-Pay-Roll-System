@@ -38,14 +38,22 @@ class Admin_Controller extends Controller
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('admin.admin_myprofile',compact(['data4','data5','data6']));  
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('admin.admin_myprofile',compact(['data4','data5','data6','propic']));  
 
     }
 
     public function EditProPic(){
         $id=Auth::user()->id;
         $data = DB::table("user_details")->where("id", $id)->get();
-        return view('admin.admin-profile-pic',compact('data'));
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('admin.admin-profile-pic',compact(['data','propic']));
 
     }
 
@@ -58,13 +66,18 @@ class Admin_Controller extends Controller
             $filename=time().'.'.$avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
 
-            $propic=User_detail::find($id);
-            $propic->avatar=$filename;
-            $propic->save();
+            $propic1=User_detail::find($id);
+            $propic1->avatar=$filename;
+            $propic1->save();
             //$office->obranch=$request->obranch;
 
             $data = DB::table("user_details")->where("id", $id)->get();
-            return view('admin.admin-profile-pic',compact('data'));
+
+            $id1=Auth::user()->id;
+            $propic=DB::table("user_details")->where("id", $id1)->get();
+
+
+            return view('admin.admin-profile-pic',compact('data','propic'));
 
         }
 

@@ -1,4 +1,4 @@
-@extends('layouts.edit_office_info')
+@extends('layouts.edit_my_profile_pic')
 
 @section('title',"Admin")
 
@@ -26,6 +26,7 @@
 @endsection
 
 @section('functions01',"Manage Users")
+
 
 @section('prop_imgs')   
     @foreach($data as $emp)
