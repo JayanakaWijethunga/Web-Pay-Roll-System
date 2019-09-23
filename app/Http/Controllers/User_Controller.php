@@ -100,7 +100,11 @@ class User_Controller extends Controller
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
-        return view('employee.emp_profile',compact(['data4','data5','data6']));
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        return view('employee.emp_profile',compact(['data4','data5','data6','propic']));
 
     }
 

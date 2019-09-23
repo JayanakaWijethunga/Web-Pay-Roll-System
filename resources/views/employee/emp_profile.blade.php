@@ -1,145 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @foreach($data4 as $emp)
-	<title>{{$emp->first_name}} Profile</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Civic - CV Resume">
-	<meta name="keywords" content="resume, civic, onepage, creative, html">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon   
-	<link href="../img/favicon.ico" rel="shortcut icon"/>--> 
+@extends('layouts.newprofile')
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
+@section('title',"Admin")
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="../css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="../css/flaticon.css"/>
-	<link rel="stylesheet" href="../css/owl.carousel.css"/>
-	<link rel="stylesheet" href="../css/magnific-popup.css"/>
-	<link rel="stylesheet" href="../css/style.css"/>
+@section('utypemin',"A")
+
+@section('utype',"Admin")
+
+@section('avators')
+@foreach($propic as $emp)
+<img src="/uploads/avatars/{{$emp->avatar}}" class="img-circle" alt="User Image">
+@endforeach
+@endsection
+
+@section('names')
+<p>{{ Auth::user()->username }}</p>
+<a href="{{ route('user-myprofile') }}">
+@endsection
+
+@section('records')
+<a href="{{ route('employee.records') }}">
+@endsection
+
+@section('myprofile')
+<a href="{{ route('user-myprofile') }}">
+@endsection
+
+@section('functions01',"Manage Employees")
+
+@section('title',"Employee")
 
 
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 
-</head>
-<body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
+@section('heading')
+	@foreach($data4 as $emp)
+	<h1>{{$emp->first_name}}'s  Profile</h1>
+    @endforeach
+@endsection
+
+@section('form_part')
+   <form class="well form-horizontal" action="{{route('admin.registers')}}" method="POST">
+@endsection
+
+@section('backs')
+   <a href="{{route('admin.records')}}" class="btn btn-info">Back</a>
+@endsection
+
+@section('title')
+	@foreach($data4 as $emp)
+	<title>{{$emp->first_name}}'s  Profile</title>
+    @endforeach
+@endsection
+
+@section('navg')
+	<div class="col-md-8 text-md-right header-buttons">
+		<a href="{{route('user.records')}}" class="site-btn">BACK</a>
+		<a href="#" class="site-btn">LOGOUT</a>
 	</div>
-	
-	<!-- Header section start -->
-	<header class="header-section">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="site-logo">
-						<h2><a href="#">Employee Information</a></h2>
-						<p>Basic/Official/Financial</p>
-					</div>
-				</div>
-				<div class="col-md-8 text-md-right header-buttons">
-					<a href="{{route('employee.records')}}" class="site-btn">BACK</a>
-					<a href="#" class="site-btn">LOGOUT</a>
-				</div>
+@endsection
+
+@section('basic')
+			@foreach($data4 as $emp)
+				<h2>{{$emp->first_name}} {{$emp->last_name}}</h2>
+				
 			</div>
-		</div>
-	</header>
-	<!-- Header section end -->
-
-	<!-- Hero section start -->
-	<section class="hero-section spad">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-10 offset-xl-1">
-					<div class="row">
-						<div class="col-lg-6">
-							
-                            
-                            <div class="hero-text">
-								<h2>{{$emp->first_name}} {{$emp->last_name}}</h2>
-								
-							</div>
-							<div class="hero-info">
-								<h2>General Information</h2>
-								<ul>
-									<li><span>SSN : </span>{{$emp->ssn}}</li>
-									<li><span>Name : </span>{{$emp->first_name}} {{$emp->last_name}}</li>
-									<li><span>Date of Birth : </span>{{$emp->dob}}</li>
-									<li><span>Address : </span>{{$emp->address_line_1}},{{$emp->address_line_2}}</li>
-                                    <li><span>Phone Number : </span>{{$emp->phoneNumber}}</li>
-								</ul>
-                                <br/>
-                                <div>
-								<form action="/emp-basic-edit/{{ $emp->id }}" method='get'>
-                                <button type='submit' class="btn btn-success btn-block"><span class="fa fa-edit"></span> Edit Basic Info </button>
-                                </form>
-								</div>
-                                @endforeach
-							</div>
-                            <br><br>
-                            <div class="hero-info">
-                            @foreach($data5 as $emp2)
-								<h2>Official information</h2>
-								<ul>
-									<li><span>Current Branch : </span>{{$emp2->obranch}}</li>
-									<li><span>Department : </span>{{$emp2->dept}}</li>
-									<li><span>Designation : </span>{{$emp2->des}}</li>
-									
-								</ul>
-                                <br/>
-                                <div>
-								<form action="/emp-office-edit/{{ $emp2->id }}" method='get'>
-                                <button type='submit' class="btn btn-success btn-block"><span class="fa fa-edit"></span> Edit Official Info </button>
-                                </form>
-								</div>
-                                @endforeach
-							</div>
-
-						</div>
-						<div class="col-lg-6">
-							<figure class="hero-image">
-								<img src="../img/hero.jpg" alt="5">
-							</figure>
-
-                            <div class="hero-info">
-                            @foreach($data6 as $emp3)
-								<h2>Financial Information</h2>
-								<ul>
-									<li><span>Fixed Allowances : </span>{{$emp3->fixed_allowances}}</li>
-									<li><span>Fixed Deductions : </span>{{$emp3->fixed_deductions}}</li>
-									<li><span>Bank             : </span>{{$emp3->bank}}</li>
-									<li><span>Branch           : </span>{{$emp3->bbranch}}</li>
-                                    <li><span>Account Number   : </span>{{$emp3->acc}}</li>
-								</ul>
-                                <br/>
-                                <div>
-								<form action="/emp-finance-edit/{{ $emp3->id }}" method='get'>
-                                <button type='submit' class="btn btn-success btn-block"><span class="fa fa-edit"></span> Edit Financial Info </button>
-                                </form>
-								</div>
-                                @endforeach
-							</div>
-						</div>
-					</div>
+			<div class="hero-info">
+				<h2>General Information</h2>
+				<ul>
+					<li><span>SSN : </span>{{$emp->ssn}}</li>
+					<li><span>Name : </span>{{$emp->first_name}} {{$emp->last_name}}</li>
+					<li><span>Date of Birth : </span>{{$emp->dob}}</li>
+					<li><span>Address : </span>{{$emp->address_line_1}},{{$emp->address_line_2}}</li>
+					<li><span>Phone Number : </span>{{$emp->phoneNumber}}</li>
+				</ul>
+				<br/>
+				<div>
+				<<form action="/emp-basic-edit/{{ $emp->id }}" method='get'>
+                <button type='submit' class="btn btn-success btn-block"><span class="fa fa-edit"></span> Edit Basic Info </button>
+				</form>
 				</div>
-			</div>
-		</div>
-	</section>
-	
+				@endforeach
+@endsection
 
-	<!--====== Javascripts & Jquery ======-->
-	<script src="../js/jquery-2.1.4.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/owl.carousel.min.js"></script>
-	<script src="../js/magnific-popup.min.js"></script>
-	<script src="../js/circle-progress.min.js"></script>
-	<script src="../js/main.js"></script>
-</body>
-</html>
+
+
+@section('office')
+				@foreach($data5 as $emp2)
+				<h2>Official information</h2>
+				<ul>
+					<li><span>Current Branch : </span>{{$emp2->obranch}}</li>
+					<li><span>Department : </span>{{$emp2->dept}}</li>
+					<li><span>Designation : </span>{{$emp2->des}}</li>
+					
+				</ul>
+				<br/>
+				<div>
+				<form action="/emp-office-edit/{{ $emp2->id }}" method='get'>
+                <button type='submit' class="btn btn-success btn-block"><span class="fa fa-edit"></span> Edit Official Info </button>
+				</form>
+				</div>
+				@endforeach
+@endsection
+
+@section('avtr')
+                @foreach($data4 as $emp)
+				<img src="/uploads/avatars/{{$emp->avatar}}" style="border-radius:50%;" alt="5" >
+                @endforeach
+ @endsection
+
+ @section('fi')
+			@foreach($data6 as $emp3)
+			<h2>Financial Information</h2>
+			<ul>
+				<li><span>Fixed Allowances : </span>{{$emp3->fixed_allowances}}</li>
+				<li><span>Fixed Deductions : </span>{{$emp3->fixed_deductions}}</li>
+				<li><span>Bank             : </span>{{$emp3->bank}}</li>
+				<li><span>Branch           : </span>{{$emp3->bbranch}}</li>
+				<li><span>Account Number   : </span>{{$emp3->acc}}</li>
+			</ul>
+			<br/>
+			<div>
+			<form action="/emp-finance-edit/{{ $emp3->id }}" method='get'>
+            <button type='submit' class="btn btn-success btn-block"><span class="fa fa-edit"></span> Edit Financial Info </button>
+			</form>
+			</div>
+			@endforeach
+ @endsection
