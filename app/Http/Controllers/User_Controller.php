@@ -215,6 +215,7 @@ class User_Controller extends Controller
 
         $finanace->save();
         $ot->save();
+
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
@@ -228,13 +229,16 @@ class User_Controller extends Controller
 
     public function showEditOfficeForm($id){
 
+
         $office=Employee_official::find($id);
         $data = DB::table('employee_designations')->get();
+        $deps = DB::table('employee_department')->get();
+        $cbranchs = DB::table('employee_branch')->get();
 
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
 
-        return view('employee.emp_office_edit',compact(['office','data','propic']));
+        return view('employee.emp_office_edit',compact(['office','data','propic','deps','cbranchs']));
 
     }
 

@@ -136,10 +136,15 @@
                                <div class="input-group">
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-home"></i></span>
                                   <select class="selectpicker form-control" value='{{$office->obranch}}' name="obranch">
-                                    <option disabled="disabled" selected="selected">Select Company Branch</option>
-                                    <option >Matara</option>
-                                    <option>Colombo</option>
-                                    <option>Galle</option>
+                                  @foreach($cbranchs as $branch)
+                                    
+                                    @if( $branch->company_branch == $office->obranch )
+                                    <option value="{{ $branch->company_branch }}" selected="selected"> {{ $branch->company_branch }}</option>
+                                    @else
+                                    <option value="{{ $branch->company_branch }}"> {{ $branch->company_branch }}</option>
+                                    @endif
+      
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('obranch'))
@@ -156,10 +161,15 @@
                                <div class="input-group">
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-home"></i></span>
                                   <select class="selectpicker form-control" name="dept" value='{{$office->dept}}'>
-                                    <option disabled="disabled" selected="selected">Select the Department</option>
-                                    <option>Design</option>
-                                    <option>Develop</option>
-                                    <option>Testing</option>
+                                  @foreach($deps as $dep)
+                                    
+                                    @if( $dep->department == $office->dept )
+                                    <option value="{{ $dep->department }}" selected="selected"> {{ $dep->department }}</option>
+                                    @else
+                                    <option value="{{ $dep->department }}"> {{ $dep->department }}</option>
+                                    @endif
+      
+                                    @endforeach
                                   </select>
                                </div>
                                @if ($errors->first('dept'))
@@ -176,9 +186,14 @@
                                <div class="input-group">
                                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-briefcase"></i></span>
                                   <select class="selectpicker form-control" name="des" value="{{$office->des}}">
-                                    <option disabled="disabled" selected="selected">Select the Designation</option>
-                                    @foreach($data as $desig)
-                                    <option>{{$desig->designation}}</option>
+                                  @foreach($data as $desig)
+                                    
+                                    @if( $desig->designation == $office->des )
+                                    <option value="{{ $desig->designation }}" selected="selected">{{$desig->designation}} </option>
+                                    @else
+                                    <option value="{{$desig->designation}}">{{$desig->designation}}</option>
+                                    @endif
+      
                                     @endforeach
                                   </select>
                                </div>

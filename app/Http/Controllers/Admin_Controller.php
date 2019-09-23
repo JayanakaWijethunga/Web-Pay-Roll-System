@@ -211,15 +211,14 @@ class Admin_Controller extends Controller
     public function showEditOfficeForm($id){
 
         $office=Employee_official::find($id);
-        
         $data = DB::table('employee_designations')->get();
+        $deps = DB::table('employee_department')->get();
+        $cbranchs = DB::table('employee_branch')->get();
 
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
 
-        
-
-        return view('user.user_office_edit',compact(['office','data','propic']));
+        return view('user.user_office_edit',compact(['office','data','propic','deps','cbranchs']));
 
     }
 
