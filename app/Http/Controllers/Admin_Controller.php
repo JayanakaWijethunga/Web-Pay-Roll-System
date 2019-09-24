@@ -7,6 +7,7 @@ use App\User_detail;
 use App\Employee_financial;
 use App\Employee_ot;
 use App\Employee_official;
+use App\User;
 use DB;
 use Auth;
 use Image;
@@ -257,6 +258,29 @@ class Admin_Controller extends Controller
         return view('user.user_profile',compact(['data4','data5','data6','propic']));
         
     }
+
+    public function CanLogUser(Request $request,$id){
+
+
+        
+        $data = User::where('id', $id)->first();
+         
+ 
+         if($data->status == '0'){
+ 
+             $data->status = '1'; 
+             
+ 
+         }else{
+ 
+             $data->status = '0';
+             
+         }
+ 
+         $data->save();
+         return redirect('/user-records');
+ 
+     }
 
 
     public function DeleteUser($id){

@@ -277,6 +277,29 @@ class User_Controller extends Controller
         
     }
 
+    public function CanLogEmp(Request $request,$id){
+
+
+        
+        $data = User::where('id', $id)->first();
+         
+ 
+         if($data->status == '0'){
+ 
+             $data->status = '1'; 
+             
+ 
+         }else{
+ 
+             $data->status = '0';
+             
+         }
+ 
+         $data->save();
+         return redirect('/emp-records');
+ 
+     }
+
     public function DeleteEmployee($id){
 
 

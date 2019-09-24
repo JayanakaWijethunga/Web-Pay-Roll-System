@@ -46,11 +46,36 @@
 
 
         <button type='submit' class="btn btn-primary">
-        <span class="glyphicon glyphicon-remove"></span>Edit Profile
+        <span class="glyphicon glyphicon-edit"></span>Edit Profile
         </button>
         </form>
         </td>
 
+        <td>
+                    
+                    
+                    <form action="/canlogemp/{{ $emp->user_id }}" method='post' >
+                    
+                    {{ csrf_field() }}
+                    
+                    
+                    
+                    <button type='submit' class="btn btn-warning ">
+                    
+                    
+                    @if ($emp->status == '0')
+                    <span class="glyphicon glyphicon-lock"></span> 
+                    Block
+                    @else
+                    <span class="glyphicon glyphicon-eye-open"></span> 
+                    Unblock
+                    @endif
+                    </button>
+                    </form>
+
+                    
+
+                    </td>
 
         <td>
 

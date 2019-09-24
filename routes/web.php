@@ -54,6 +54,7 @@ Route::get('/emp-finance-edit/{id}', 'User_Controller@showEditFinanceForm')->nam
 Route::post('/emp-finance-update/{id}', 'User_Controller@updatesFinance');
 Route::get('/emp-office-edit/{id}', 'User_Controller@showEditOfficeForm')->name('emp.editfinance');
 Route::post('/emp-office-update/{id}', 'User_Controller@updatesOffice');
+Route::post('/canlogemp/{id}','User_Controller@CanLogEmp');
 
 Route::get('user-records', 'Admin_Controller@UserRecords')->name('user.records');
 Route::get('/user-profile/{id}', 'Admin_Controller@UserProfiles')->name('user.profiles');
@@ -64,6 +65,7 @@ Route::get('/user-finance-edit/{id}', 'Admin_Controller@showEditFinanceForm')->n
 Route::post('/user-finance-update/{id}', 'Admin_Controller@updatesFinance');
 Route::get('/user-office-edit/{id}', 'Admin_Controller@showEditOfficeForm')->name('user.editfinance');
 Route::post('/user-office-update/{id}', 'Admin_Controller@updatesOffice');
+Route::post('/canloguser/{id}','Admin_Controller@CanLogUser');
 
 Route::get('admin-records', 'Super_Admin_Controller@AdminRecords')->name('admin.records');
 Route::get('/admin-profile/{id}', 'Super_Admin_Controller@AdminProfiles')->name('admin.profiles');
