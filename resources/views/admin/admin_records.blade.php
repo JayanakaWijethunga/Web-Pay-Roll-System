@@ -62,7 +62,7 @@
                     
                     
                     
-                    <button type='submit' class="btn btn-warning ">
+                    <button type='submit' class="btn btn-warning">
                     
                     
                     @if ($emp->status == '0')
