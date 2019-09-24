@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
-
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,11 +15,8 @@
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  
-  
-  
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
 
 
 </head>
@@ -31,22 +28,24 @@
 
 
     <a href="#" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
+      
       <span class="logo-mini"><b>@yield('utypemin')</b>CP</span>
-      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><small><b>@yield('utype') </b>Control Panel</small></span>
+
     </a>
 
-    <!-- Header Navbar -->
+    
     <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
+
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+
     </nav>
     
   </header>
   <!-- Left side column. contains the logo and sidebar -->
+  
   <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -72,14 +71,18 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
+
         <li class="header">Actions</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active">
+
         @section('records')
         @show
 
         <i class="fa fa-tasks"></i> <span>@yield('functions01')</span></a></li>
+
         <li class="">
+
         @section('myprofile')
         @show
 
@@ -96,48 +99,47 @@
       </ul>
 
   
-                                       
-                                    
-
-                                   
-
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="play content-wrapper">
+<div class="play content-wrapper">
   <section class="content-header">
-  </section>
+
+  <div>
+      <center>
+         <div class="page-header">
+            <h1><b>@yield('headers')</b> <small><b>Register here</b></small></h1>
+         </div>
+      </center>
+   </div>
+
+   </section>
   <section class="content" >
 
   <div >
-<div class="all container">
-                        <div>
-                        <center>
-                        <div class="page-header">
-                        <h1><b>@yield('headers')</b> <small><b>Register here</b></small></h1>
-                        </div>
-                        </center>
-                        </div>
-@section('form_part')
-@show
-{{csrf_field()}}
-       <table class="table table-striped">
-          <tbody>
-             <tr>
+   <div class="all">
+      
+
+   @section('form_part')
+   @show
+   {{csrf_field()}}
+       
+       <div class="all table table-striped">
+          <div>
+             <div class="row">
                 <!--Official Information begin-->
-             <td colspan="1">
+             <div class="col-sm-6">
                 
-                   
                       <fieldset>
                         
-                        <center>
-                        <div class="page-header">
-                        <h4><b>Official Informations</b><small>(Mandatory)</small></h4>
-                        </div>
-                        </center>
+   <center>
+   <div class="page-header">
+   <h4><b>Official Informations</b><small>(Mandatory)</small></h4>
+   </div>
+   </center>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">SSN</label>
@@ -237,17 +239,19 @@
 
                     </fieldset>
                    
-                    </td>
+                    </div>
                      <!--Official Information end-->
-                     <td colspan="1">
+
+                     <div class="col-sm-6">
+
                     <!--Financial Information begin -->
                     
-                      <fieldset>
-                        <center>
-                        <div class="page-header">
-                        <h4><b>Financial Informations</b><small>(Mandatory)</small></h4>
-                        </div>
-                        </center>
+                     <fieldset>
+<center>
+<div class="page-header">
+<h4><b>Financial Informations</b><small>(Mandatory)</small></h4>
+</div>
+</center>
                          <div class="form-group">
                             <label class="col-md-4 control-label">Fixed Allowances</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -347,27 +351,25 @@
                         
                          </fieldset>
                         
-                        </td>
+                        </div>
 
                     
-                    </tr>
+                    </div>
                    <!--fina ennd-->
                     
-
-
-
-                    <tr>
-                    <td colspan="1">
+                    <div class="row">
+                    <div class="col-sm-6">
                                        
-                                       <!--Basic info begin-->
+                     <!--Basic info begin-->
 
                         
                       <fieldset>
-                        <center>
-                        <div class="page-header">
-                        <h4><b>Basic Informations</b><small>(optional)</small></h4>
-                        </div>
-                        </center>
+   <center>
+   <div class="page-header">
+   <h4><b>Basic Informations</b><small>(optional)</small></h4>
+   </div>
+   </center>
+
                          <div class="form-group">
                             <label class="col-md-4 control-label">First Name</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -424,23 +426,23 @@
                          </div>
                       </fieldset>
                    
-                    <!--Basic info end-->
 
-                </td>
+                </div>
 
-
+                <!--Basic info end-->
                 
+                <!--financial info end-->
 
-                   <!--financial info end-->
-                   <td colspan="1">
+                   <div class="col-sm-6">
                     <!--Security Information begin-->
                    
                       <fieldset>
-                        <center>
-                        <div class="page-header">
-                        <h4><b>Security Informations</b><small>(Mandatory)</small></h4>
-                        </div>
-                        </center>
+<center>
+<div class="page-header">
+<h4><b>Security Informations</b><small>(Mandatory)</small></h4>
+</div>
+</center>
+
                          <div class="form-group">
                             <label class="col-md-4 control-label">Password</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -475,16 +477,12 @@
                          </fieldset>
                          
                       <!--Security Information end-->
-                      </td>
+                      </div>
                 
-                </tr>
+                </div>
                 
-               
-                
-                
-          </tbody>
-       </table>
-       
+          </div>
+       </div>
    
     </form>
     
@@ -497,12 +495,12 @@
   
   <footer class="main-footer">
 
-<div class="pull-right hidden-xs">
-  Company Name Here
-</div>
+         <div class="pull-right hidden-xs">
+         Company Name Here
+         </div>
 
-<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-</footer>
+         <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+  </footer>
 
 
   <div class="control-sidebar-bg"></div>
@@ -525,13 +523,6 @@
 
 <script src="../dist/js/adminlte.min.js"></script>
 
-<style>
-.all{
-    margin:0;
-    padding:0; 
-    width:1100px;
-    
-}
-</style>
+
 
 </html>
