@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\UserDetailResource;
 
 use App\User_detail;
-
+use Image;
 class UserDetailController extends Controller
 {
 
@@ -30,6 +30,19 @@ class UserDetailController extends Controller
        $imgPath=User_detail::find(auth()->guard('api')->user()->id);
        
        return response()->download(public_path('uploads/avatars/'.$imgPath->avatar),'Emp_Profile_Image');
+
+    }
+
+    public function updateProfilePic(Request $requset){
+
+        
+            $avatar=$requset->file('avatar');
+            $filename=time().'.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
+
+            $propic1=User_detail::find(auth()->guard('api')->user()->id);
+            $propic1->avatar=$filename;
+            $propic1->save();
 
     }
 }
