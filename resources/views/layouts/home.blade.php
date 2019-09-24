@@ -120,19 +120,19 @@
         
         <div class="container">
         <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-11">
             <div class="card">
                 
 
                 <div class="card-body">
-                    <table   id='flip-scroll'>
+                    <table class="table-responsive"  id='unseen'>
                     <thead>
                     <tr>
-                <th>Username</th>
-                <th>E-mail</th>
-                <th>Edit</th>
-                <th>Accessability</th>
-                <th>Delete</th>
+                <th class="priority-1">Username</th>
+                <th class="priority-2">E-mail</th>
+                <th class="priority-3">Edit</th>
+                <th class="priority-4">Accessability</th>
+                <th class="priority-5">Delete</th>
 
                 
                 
@@ -200,7 +200,8 @@
 
 <script>
 $(document).ready( function () {
-    $('#flip-scroll').DataTable();
+    $('#unseen').DataTable();
+    
     responsive: true;
 } );
 
@@ -232,34 +233,60 @@ h4 {
     
 }
 
-@media only screen and (max-width: 800px) {
+
 	
-	#flip-scroll .cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
-	#flip-scroll * html .cf { zoom: 1; }
-	#flip-scroll *:first-child+html .cf { zoom: 1; }
+
+  /* Large desktop */
+@media (min-width: 1200px) {
+
+  
+
+ }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+
+  .priority-5{
+			display:none;
+		}
+
+    .priority-1{
+			display:none;
+		}
+
+ }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+
+  .priority-5{
+			display:none;
+		}
+		.priority-1{
+			display:none;
+		}
+
+ }
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+
+
+  .priority-5{
+			display:none;
+		}
+		.priority-4{
+			display:none;
+    }
+		.priority-1{
+			display:none;
+		}
+
+ }
 	
-	#flip-scroll table { width: 100%; border-collapse: collapse; border-spacing: 0; }
- 
-	#flip-scroll th,
-	#flip-scroll td { margin: 0; vertical-align: top; }
-	#flip-scroll th { text-align: left; }
 	
-	#flip-scroll table { display: block; position: relative; width: 100%; }
-	#flip-scroll thead { display: block; float: left; }
-	#flip-scroll tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
-	#flip-scroll thead tr { display: block; }
-	#flip-scroll th { display: block; text-align: right; }
-	#flip-scroll tbody tr { display: inline-block; vertical-align: top; }
-	#flip-scroll td { display: block; min-height: 1.25em; text-align: left; }
+
  
- 
-	/* sort out borders */
- 
-	#flip-scroll th { border-bottom: 0; border-left: 0; }
-	#flip-scroll td { border-left: 0; border-right: 0; border-bottom: 0; }
-	#flip-scroll tbody tr { border-left: 1px solid #babcbf; }
-	#flip-scroll th:last-child,
-	#flip-scroll td:last-child { border-bottom: 1px solid #babcbf; }
-}
+
 </style>
 </html>
