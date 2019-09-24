@@ -129,6 +129,7 @@
                 <th>Username</th>
                 <th>E-mail</th>
                 <th>Edit</th>
+                <th>Accessability</th>
                 <th>Delete</th>
 
                 

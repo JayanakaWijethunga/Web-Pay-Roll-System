@@ -21,6 +21,13 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
+    protected function credentials(Request $request)
+    {
+       // return $request->only($this->username(), 'password');
+        return ['email'=>$request->{$this->username()},'password'=>$request->password,'status'=>'0'];
+    }
+
      /**
      * Send the response after the user was authenticated.
      *

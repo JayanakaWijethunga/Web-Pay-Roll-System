@@ -27,6 +27,7 @@
                 <th>Username</th>
                 <th>E-mail</th>
                 <th>Edit</th>
+                <th>Accesability</th>
                 <th>Delete</th>
 
                 
