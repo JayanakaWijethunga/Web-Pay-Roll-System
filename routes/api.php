@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/user_detail','Api\UserDetailController');
+
+Route::get('/user/image','Api\UserDetailController@getProfilePic');
