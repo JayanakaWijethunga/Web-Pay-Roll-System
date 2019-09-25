@@ -36,8 +36,15 @@ class UserDetailController extends Controller
     public function updateProfilePic(Request $requset){
 
         
-            $avatar=$requset->file('avatar');
-            $filename=time().'.'.$avatar->getClientOriginalExtension();
+            //$avatar=$requset->file('avatar');
+
+            //$filename=time().'.'.$avatar->getClientOriginalExtension();
+
+            $avatar=$requset->avatar;
+
+            
+            $filename = time().'.' . explode('/', explode(':', substr($avatar, 0, strpos($avatar, ';')))[1])[1];
+
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
 
             $propic1=User_detail::find(auth()->guard('api')->user()->id);
