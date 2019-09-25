@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\UserDetailResource;
+use Response;
 
 use App\User_detail;
 use Image;
@@ -28,8 +29,12 @@ class UserDetailController extends Controller
     public function getProfilePic(){
 
        $imgPath=User_detail::find(auth()->guard('api')->user()->id);
+
+       $image = (string) Image::make(public_path('uploads/avatars/'.$imgPath->avatar))->encode('data-url');
+    
+       return Response::json($image);
        
-       return response()->download(public_path('uploads/avatars/'.$imgPath->avatar),'Emp_Profile_Image');
+       //return response()->download(public_path('uploads/avatars/'.$imgPath->avatar),'Emp_Profile_Image');
 
     }
 
