@@ -108,12 +108,17 @@
 <div class="play content-wrapper">
   <section class="content-header">
 
+  <div class="text-right">
+      @section('backs')
+      @show
+   </div>
+
   <div>
-      <center>
+      <div class="text-center">
          <div class="page-header">
             <h1><b>@yield('headers')</b> <small><b>Register here</b></small></h1>
          </div>
-      </center>
+      </div>
    </div>
 
    </section>
@@ -135,11 +140,11 @@
                 
                       <fieldset>
                         
-   <center>
-   <div class="page-header">
-   <h4><b>Official Informations</b><small>(Mandatory)</small></h4>
-   </div>
-   </center>
+               <div class="text-center">
+                  <div class="page-header">
+                  <h4><b>Official Informations</b><small>(Mandatory)</small></h4>
+                  </div>
+               </div>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">SSN</label>
@@ -247,11 +252,13 @@
                     <!--Financial Information begin -->
                     
                      <fieldset>
-<center>
-<div class="page-header">
-<h4><b>Financial Informations</b><small>(Mandatory)</small></h4>
-</div>
-</center>
+
+                     <div class="text-center">
+                        <div class="page-header">
+                        <h4><b>Financial Informations</b><small>(Mandatory)</small></h4>
+                        </div>
+                     </div>
+
                          <div class="form-group">
                             <label class="col-md-4 control-label">Fixed Allowances</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -364,11 +371,12 @@
 
                         
                       <fieldset>
-   <center>
-   <div class="page-header">
-   <h4><b>Basic Informations</b><small>(optional)</small></h4>
-   </div>
-   </center>
+                     
+                      <div class="text-center">
+                        <div class="page-header">
+                        <h4><b>Basic Informations</b><small>(optional)</small></h4>
+                        </div>
+                      </div>
 
                          <div class="form-group">
                             <label class="col-md-4 control-label">First Name</label>
@@ -468,10 +476,10 @@
                          </div>
 
                          </div>
-                        <div class="text-right text-bottom">
-                        @section('backs')
-                        @show
+                        <div class="text-center text-bottom">
+                        
                         <button type="submit" class="btn btn-success">Register</button>
+
                         </div>
 
                          </fieldset>

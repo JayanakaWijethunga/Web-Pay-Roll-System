@@ -95,11 +95,7 @@
         
       </ul>
 
-  
-                                       
-                                    
-
-                                   
+                        
 
       <!-- /.sidebar-menu -->
     </section>
@@ -109,26 +105,39 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="play content-wrapper">
   <section class="content-header">
+
+            <div class="text-right">
+                @section('backs')
+                @show
+            </div>
+
+            <div class="text-center">
+            <div class="page-header">
+            <h1><b>Edit</b> <small><b>Official Informations</b></small></h1>
+            </div>
+            </div>
+
   </section>
   <section class="content" >
-  <div class="all container">
-                        <div>
-                        <center>
-                        <div class="page-header">
-                        <h1><b>Edit</b> <small><b>Official Informations</b></small></h1>
-                        </div>
-                        </center>
+  <div class="">
+
+        <div>                
  
-@section('forms')                                          
-@show
+        @section('forms')                                          
+        @show
 
-{{csrf_field()}}
+        {{csrf_field()}}
 
-<div class='loc'>  
-       <table class="table table-striped">
-          <tbody>
-                    <tr>
-                    <td colspan="1">
+      <div class='loc'>  
+            <div class="table table-striped">
+                <div>
+                    
+                    <div class="row">
+
+                    <div class="col-sm-3">
+                    </div>
+
+                    <div class="col-sm-6">
                                        
                     <div class="form-group">
                             <label class="col-md-4 control-label">Company Branch</label>
@@ -206,15 +215,19 @@
                          </div>
 
                     </fieldset>
-                    <div class="text-right text-bottom">
-                        @section('backs')
-                        @show
+                    <div class="col-sm-3">
+                    </div>
+
+                    <div class="text-center text-bottom">
+                        
                         <button type="submit" class="btn btn-success">Save Changes</button>
+
                         </div>
-                    </td>
-                    </tr>
-          </tbody>
-       </table>
+                    </div>
+
+                    </div>
+          </div>
+       </div>
        </div>
    
     </form> 
