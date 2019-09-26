@@ -18,7 +18,7 @@
   
   
   
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
 
 
@@ -95,12 +95,6 @@
         
       </ul>
 
-  
-                                       
-                                    
-
-                                   
-
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
@@ -109,15 +103,17 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="play content-wrapper">
   <section class="content-header">
-  </section>
-  <section class="content" >
-  <div class="all container">
-                        <div>
+  <div>
                         <center>
                         <div class="page-header">
                         <h1><b>Edit</b> <small><b>Basic Informations</b></small></h1>
                         </div>
                         </center>
+  </section>
+  <section class="content" >
+
+  <div class="all">
+                        
  
 @section('forms')                                          
 
@@ -125,10 +121,10 @@
 {{csrf_field()}}
 
 <div class='loc'>  
-       <table class="table table-striped">
-          <tbody>
-                    <tr>
-                    <td colspan="1">
+       <div class="table table-striped">
+          <div>
+                    <div class="row">
+                    <div class="col-sm-6">
                                        
                                        <!--Basic info begin-->
 
@@ -166,6 +162,11 @@
                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="dob" name="dob" placeholder="Date Of Birth" class="form-control"  value="{{$basics->dob}}" type="date"></div>
                             </div>
                          </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
                          <div class="form-group">
                             <label class="col-md-4 control-label">Address Line 1</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -206,23 +207,21 @@
                       </div>
 
                         
-                        <div class="text-right text-bottom">
+                        <div class="text-center text-bottom">
                         @section('backs')
                         <button type="button" class="btn btn-info">Back</button>
                         @show
                         <button type="submit" class="btn btn-success">Save Changes</button>
-                        </div>
+                        </div>   
                         
                 
-                </tr>
+                </div>
                 
                
-                
-                
-          </tbody>
-       </table>
+          </div>
        </div>
-   
+       </div>
+                        
     </form>
     
 </div>
@@ -263,12 +262,7 @@
 <script src="../dist/js/adminlte.min.js"></script>
 
 <style>
-.all{
-    margin:0;
-    padding:0; 
-    width:1000px;
-    
-}
+
 </style>
 
 </html>
