@@ -109,15 +109,30 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="play content-wrapper">
   <section class="content-header">
+
+  <div class="text-center" >
+        @section('backbtn')
+        @show
+  </div>
+
+  <div class="text-center">
+  <h1>Update Profile Picture</h1>
+  </div>
+
   </section>
   <section class="content" >
-  <div class="all container">
-  <center><h1>Update Profile Picture</h1></center>
+
+  <div class="">
+  
   <div class="row">
+
     <div class="col-sm-6" >
     <br><br><br>
+
+    <div class="text-center">
     @section('prop_imgs')
     @show
+    </div>
 
     </div>
     <div class="col-sm-6" >
@@ -126,20 +141,19 @@
     @show
         @csrf
         <br><br>
-        <center><h2>Choose an image</h2></center>
+        <div class="text-center">
+        <h2>Choose an image</h2>
+        </div>
         <br><br>
-        <div class="box">
-					<input type="file" name="avatar" id="avatar" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
+        <div>
+					<input type="file" name="avatar" id="wizard-picture" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
 					</div>
         <br>
        <div class="row">
-       <div class="col-sm-6" >
+       <div class="col-sm-4" >
         <input type="submit" value="Apply" class="pull-right btn  btn-primary btn-block">
         </div>
-        <div class="col-sm-3" >
-        @section('backbtn')
-        @show
-        </div>
+        
         </div>
         </form>
     </div>
@@ -180,14 +194,31 @@
 
 <script src="../dist/js/adminlte.min.js"></script>
 
-<style>
-.all{
-    margin:0;
-    padding:0; 
-    width:1000px;
-    
+<script>
+
+$(document).ready(function(){
+// Prepare the preview for profile picture
+    $("#wizard-picture").change(function(){
+        readURL(this);
+    });
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
 }
-#avatar {
+
+</script>
+
+<style>
+
+
+#wizard-picture {
   display: inline-block;
   width: 100%;
   padding: 120px 0 0 0;

@@ -36,10 +36,10 @@
 
         <tr>
 
-        <td >{{$emp->username}}</td>
-        <td>{{$emp->email}}</td>
+        <td class="priority-1">{{$emp->username}}</td>
+        <td class="priority-2">{{$emp->email}}</td>
 
-        <td>
+        <td class="priority-3">
         <form action="/emp-profile/{{ $emp->user_id }}" method='get' >
 
 
@@ -51,7 +51,7 @@
         </form>
         </td>
 
-        <td>
+        <td class="priority-4">
                     
                     
                     <form action="/canlogemp/{{ $emp->user_id }}" method='post' >
@@ -77,7 +77,7 @@
 
                     </td>
 
-        <td>
+        <td class="priority-5">
 
 
         <form action="/deleteemp/{{ $emp->user_id }}" method='post' >

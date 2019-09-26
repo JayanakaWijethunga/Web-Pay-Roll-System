@@ -29,7 +29,7 @@
 
 @section('prop_imgs')   
     @foreach($data as $emp)
-    <center><img src="/uploads/avatars/{{$emp->avatar}}" style="border-radius:50%;" alt="5" ></center>
+    <img src="/uploads/avatars/{{$emp->avatar}}" id="wizardPicturePreview" style="border-radius:50%;border: 4px solid #4E5051;" alt="5" >
     @endforeach
  @endsection
 
@@ -38,5 +38,5 @@
  @endsection
 
  @section('backbtn')   
- <a class="pull-left btn  btn-danger btn-block" href="{{route('sadmin-myprofile')}}">Back</a>
+ <a class="pull-right btn  btn-danger " href="{{route('sadmin-myprofile')}}">Back</a>
  @endsection
