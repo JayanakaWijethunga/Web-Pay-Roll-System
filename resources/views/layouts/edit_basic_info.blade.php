@@ -102,13 +102,23 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="play content-wrapper">
+
+  
+
   <section class="content-header">
   <div>
-                        <center>
-                        <div class="page-header">
-                        <h1><b>Edit</b> <small><b>Basic Informations</b></small></h1>
-                        </div>
-                        </center>
+
+  <div class="text-right">
+   @section('backs')
+   <button type="button" class="btn btn-info">Back</button>
+   @show
+   </div>
+            <div class="text-center">
+            <div class="page-header">
+            <h1><b>Edit</b> <small><b>Basic Informations</b></small></h1>
+            </div>
+            </div>
+
   </section>
   <section class="content" >
 
@@ -208,10 +218,9 @@
 
                         
                         <div class="text-center text-bottom">
-                        @section('backs')
-                        <button type="button" class="btn btn-info">Back</button>
-                        @show
+                       
                         <button type="submit" class="btn btn-success">Save Changes</button>
+
                         </div>   
                         
                 

@@ -109,35 +109,40 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="play content-wrapper">
   <section class="content-header">
+
+                        <div class="text-right">
+                        @section('backs')
+                        @show
+                        </div>
+
+            <div class="text-center">
+            <div class="page-header">
+            <h1><b>Edit</b> <small><b>Finance Informations</b></small></h1>
+            </div>
+            </div>
+            
   </section>
   <section class="content" >
-  <div class="all container">
-                        <div>
-                        <center>
-                        <div class="page-header">
-                        <h1><b>Edit</b> <small><b>Finance Informations</b></small></h1>
-                        </div>
-                        </center>
+  <div>
+          
+          <div>
+                        
  
-@section('forms')                                          
-@show
-{{csrf_field()}}
+            @section('forms')                                          
+            @show
+            {{csrf_field()}}
 
-<div class='loc'>  
-       <table class="table table-striped">
-          <tbody>
-                    <tr>
-                    <td colspan="1">
+      <div class='loc'>  
+            <div class="table table-striped">
+                <div>
+                          <div class="row">
+                          <div class="col-sm-6">
                                        
                                        <!--Basic info begin-->
 
                         
                                        <fieldset>
-                        <center>
-                        <div class="page-header">
-                        <h4><b>Financial Informations</b><small>(Mandatory)</small></h4>
-                        </div>
-                        </center>
+                      
                          <div class="form-group">
                             <label class="col-md-4 control-label">Fixed Allowances</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -187,6 +192,10 @@
                                 @endif
                             </div>
                          </div>
+
+                         </div>
+
+                         <div class="col-sm-6">
 
                          <div class="form-group">
                             <label class="col-md-4 control-label">Bank</label>
@@ -252,18 +261,15 @@
                         
                          </fieldset>
                          </div>
-                        <div class="text-right text-bottom">
-                        @section('backs')
-                        
-                        @show
+                        <div class="text-center text-bottom">
                         <button type="submit" class="btn btn-success">Save Changes</button>
                         </div>
-                        </td>
+                        </div>
 
                     
-                    </tr>
-          </tbody>
-       </table>
+                    </div>
+                </div>
+            </div>
        </div>
    
     </form>    
@@ -305,12 +311,7 @@
 <script src="../dist/js/adminlte.min.js"></script>
 
 <style>
-.all{
-    margin:0;
-    padding:0; 
-    width:1000px;
-    
-}
+
 </style>
 
 </html>
