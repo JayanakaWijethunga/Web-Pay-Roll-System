@@ -45,6 +45,8 @@ class UserDetailController extends Controller
 
             //$filename=time().'.'.$avatar->getClientOriginalExtension();
 
+            if($requset->avatar){
+
             $avatar=$requset->avatar;
 
             
@@ -55,6 +57,8 @@ class UserDetailController extends Controller
             $propic1=User_detail::find(auth()->guard('api')->user()->id);
             $propic1->avatar=$filename;
             $propic1->save();
+
+            }
 
     }
 }

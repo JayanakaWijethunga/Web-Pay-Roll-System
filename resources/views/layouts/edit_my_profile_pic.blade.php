@@ -141,20 +141,15 @@
     @show
         @csrf
         <br><br>
-        <div class="text-center">
-        <h2>Choose an image</h2>
-        </div>
-        <br><br>
-        <div>
-					<input type="file" name="avatar" id="wizard-picture" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
-					</div>
-        <br>
-       <div class="row">
-       <div class="col-sm-4" >
-        <input type="submit" value="Apply" class="pull-right btn  btn-primary btn-block">
-        </div>
         
-        </div>
+        <br><br>
+        <div class="text-center">
+          <h2 >Choose an image</h2>
+					<input type="file" name="avatar" id="wizard-picture" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
+					<input type="submit" value="Apply" class="btn btn-primary">
+          </div>
+        <br>
+       
         </form>
     </div>
   </div>
