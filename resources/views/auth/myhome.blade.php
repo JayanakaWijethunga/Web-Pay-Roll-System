@@ -12,7 +12,7 @@
         <a href="{{route('aboutus')}}" class="">About Us</a>
     </li>
     <li class="">
-        <a href="#" class="">Contact</a>
+        <a href="{{route('contactus')}}" class="">Contact</a>
     </li>
 
 
@@ -30,7 +30,7 @@
                             <h1>Welcome
                                 to <span>Treintec</span> Technologies</h1>
                             <p>Provide best software solutions for both web and mobile applications</p>
-                            <a href="#" class="btn_1">More Details </a>
+                            <a href="{{route('aboutus')}}" class="btn_1">More Details </a>
                         </div>
                     </div>
                 </div>
