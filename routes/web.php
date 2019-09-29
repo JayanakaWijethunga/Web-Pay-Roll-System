@@ -11,9 +11,13 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('auth.login');
-})->name('login');*/
+Route::get('/', function () {
+    return view('auth.myhome');
+})->name('myhome');
+
+Route::get('/aboutus', function () {
+    return view('auth.aboutus');
+})->name('aboutus');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
