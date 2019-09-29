@@ -22,7 +22,7 @@
 @section('body_part')
 
 <div class="text-center icon">
-        <span class="fa fa-user"></span>
+        <span class="fa fa-comments"></span>
     </div>
     <div class="content-bottom">
         <form action="" method="post">
@@ -35,9 +35,9 @@
                 @endif
                 </div>
             <div class="field-group">
-                <span class="fa fa-user" aria-hidden="true"></span>
+                <span class="fa fa-envelope" aria-hidden="true"></span>
                 <div class="wthree-field">
-                <input name="email" id="email" class="form-control @error('email') is-invalid @enderror" type="text" value="{{ old('email') }}" placeholder="E-mail">
+                <input name="email" id="email" class=" @error('email') is-invalid @enderror" type="text" value="{{ old('email') }}" placeholder="E-mail">
                 
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="field-group">
                     <span class="fa fa-user" aria-hidden="true"></span>
                     <div class="wthree-field">
-                    <input name="full_name" id="full_name" class="form-control @error('full_name') is-invalid @enderror" type="text" value="{{ old('full_name') }}" placeholder="Full Name">
+                    <input name="full_name" id="full_name" class=" @error('full_name') is-invalid @enderror" type="text" value="{{ old('full_name') }}" placeholder="Full Name">
                     
                     </div>
                 </div>
@@ -65,9 +65,9 @@
                         @endif
                         </div>
                     <div class="field-group">
-                        <span class="fa fa-user" aria-hidden="true"></span>
+                        <span class="fa fa-phone" aria-hidden="true"></span>
                         <div class="wthree-field">
-                        <input name="Phone_number" id="Phone_number" class="form-control @error('Phone_number') is-invalid @enderror" type="text" value="{{ old('Phone_number') }}" placeholder="Phone number">
+                        <input name="Phone_number" id="Phone_number" class=" @error('Phone_number') is-invalid @enderror" type="text" value="{{ old('Phone_number') }}" placeholder="Phone number">
                         
                         </div>
                     </div>
@@ -80,10 +80,10 @@
                             @endif
                             </div>
                         <div class="field-group">
-                            <span class="fa fa-user" aria-hidden="true"></span>
+                            <span class="fa fa-comment" aria-hidden="true"></span>
                             <div class="wthree-field">
-                           >
-                            <textarea rows="10" cols="50" name="Phone_number" id="Phone_number" class="form-control @error('message') is-invalid @enderror"  value="{{ old('message') }}" placeholder="Comment Here"></textarea>
+                           
+                            <textarea rows="10" cols="50" name="message" id="message" class=" @error('message') is-invalid @enderror"  value="{{ old('message') }}" placeholder="Comment Here"></textarea>
                             </div>
                         </div>
             

@@ -24,6 +24,6 @@ class Super_admin_Middleware
 
             }
         }
-                return redirect('login');
+                return redirect('/login');
     }
 }

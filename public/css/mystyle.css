@@ -518,6 +518,22 @@ li:nth-child(2) a,li:nth-child(1) a {
     display: none;
 }
 
+.wthree-field textarea {
+    padding: 10px 0 10px 15px;
+    font-size: 17px;
+    font-weight: 300;
+    color:#ddd;
+    letter-spacing: 1px;
+    border: none;
+    background: transparent;
+    box-sizing: border-box;
+    font-family: 'Mukta', sans-serif;
+    width: 100%;
+    outline: none;
+}
+
+
+
 .slider {
     position: absolute;
     cursor: pointer;

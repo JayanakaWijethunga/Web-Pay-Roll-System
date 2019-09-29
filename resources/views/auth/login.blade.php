@@ -37,7 +37,7 @@
             <div class="field-group">
                 <span class="fa fa-user" aria-hidden="true"></span>
                 <div class="wthree-field">
-                <input name="email" id="email" class="form-control @error('email') is-invalid @enderror" type="text" value="{{ old('email') }}" placeholder="E-mail">
+                <input name="email" id="email" class=" @error('email') is-invalid @enderror" type="text" value="{{ old('email') }}" placeholder="E-mail">
                 
                 </div>
             </div>
@@ -51,7 +51,7 @@
             <div class="field-group">
                 <span class="fa fa-lock" aria-hidden="true"></span>
                 <div class="wthree-field">
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="password" name="password" autocomplete="current-password">
+                <input id="password" type="password" class=" @error('password') is-invalid @enderror" placeholder="password" name="password" autocomplete="current-password">
 
                
                 </div>
