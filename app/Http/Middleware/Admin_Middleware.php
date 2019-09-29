@@ -24,6 +24,6 @@ class Admin_Middleware
 
             }
         }
-                return redirect('auth.login');
+                return redirect('/login');
     }
 }
