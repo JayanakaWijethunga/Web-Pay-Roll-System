@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -20,6 +20,16 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
 
 
     protected function credentials(Request $request)
@@ -56,7 +66,7 @@ class LoginController extends Controller
                 
             }elseif($role->name == 'employee'){
 
-                return redirect('/');
+                return redirect('/login');
                 
             }
 
@@ -68,7 +78,30 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
+    /*public function redirectTo(){
+        
+        // User role
+        $role = Auth::user()->role->name; 
+        
+        // Check user role
+        switch ($role) {
+            case 'super_admin':
+                    return redirect('sadmin/home');
+                break;
+            case 'admin':
+                    return redirect('/admin/home');
+                break; 
+            case 'user':
+                return redirect('/user/home');
+            break;
+            default:
+                    return redirect('/'); 
+                break;
+        }
+    }*/
+
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.

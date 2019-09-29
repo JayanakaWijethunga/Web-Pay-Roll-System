@@ -15,8 +15,9 @@ class Super_Admin_Controller extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        
         $this->middleware('super_admin');
+        $this->middleware('auth');
     }
 
     public function ShowSadminHome(){
