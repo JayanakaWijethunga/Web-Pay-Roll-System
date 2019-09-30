@@ -15,12 +15,12 @@ use App\Employee_ot;
 use App\Employee_official;
 use Image;
 
-class AdminServices 
+class UserServices 
 {
   
     use ValidatesRequests;
 
-    public function DeleteUser($id){
+    public function DeleteEmp($id){
         
         DB::table("users")->where("id", $id)->delete();
         DB::table("role_users")->where("user_id", $id)->delete();
@@ -48,7 +48,7 @@ class AdminServices
 
     }
 
-    public function UserBasicUpdates(Request $request,$id){
+    public function EmpBasicUpdates(Request $request,$id){
 
         $basic=User_detail::find($id);
         $basic->ssn=$request->ssn;
@@ -63,7 +63,7 @@ class AdminServices
 
     }
 
-    public function UserFinanceUpdates(Request $request,$id){
+    public function EmpFinanceUpdates(Request $request,$id){
 
         $finanace=Employee_financial::find($id);
         $ot=Employee_ot::find($id);
@@ -97,7 +97,7 @@ class AdminServices
 
     }
 
-    public function UserOfficeUpdates(Request $request,$id){
+    public function EmpOfficeUpdates(Request $request,$id){
 
         $office=Employee_official::find($id);
         
@@ -122,7 +122,7 @@ class AdminServices
 
     }
 
-    public function UpdateAdminAvatar(Request $request,$id){
+    public function UpdateUserAvatar(Request $request,$id){
 
         if($request->hasFile('avatar')){
 
