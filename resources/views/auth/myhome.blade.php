@@ -2,27 +2,30 @@
 
 @section('headers')
 
-<li class="active">
-        <a href="{{route('myhome')}}" class="">Home</a>
-    </li>
-    <li class="">
-        <a href="{{route('login')}}" class="">Login</a>
-    </li>
-    <li class="">
-        <a href="{{route('aboutus')}}" class="">About Us</a>
-    </li>
-    <li class="">
-        <a href="{{route('contactus')}}" class="">Contact</a>
-    </li>
+<li class="">
+    <a href="{{route('myhome')}}" class="active">Home</a>
+</li>
+<li class="">
+    <a href="{{route('login')}}" class="">Login</a>
+</li>
+<li class="">
+    <a href="{{route('aboutus')}}" class="">About Us</a>
+</li>
+<li class="">
+    <a href="{{route('contactus')}}" class="">Contact</a>
+</li>
+
 
 
 @endsection
 
 
 @section('body_part')
-
+<div class="text-center icon">
+    <span class="fa fa-user"></span>
+</div>
 <section class="banner_part">
-        <div class="container">
+        <div class="">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
