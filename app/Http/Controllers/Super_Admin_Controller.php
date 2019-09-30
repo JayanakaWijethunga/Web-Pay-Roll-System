@@ -11,6 +11,8 @@ use DB;
 use Auth;
 use Image;
 
+use App\Services\SuperAdminServices;
+
 class Super_Admin_Controller extends Controller
 {
     public function __construct()
@@ -84,12 +86,16 @@ class Super_Admin_Controller extends Controller
 
     public function AdminProfiles($id){
         //$data1 = DB::table("users")->where("id", $id)->get();
+        
+       
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();
         return view('admin.admin_profile',compact(['data1','data2','data3','propic']));
+
+        
 
     }
 
@@ -248,39 +254,19 @@ class Super_Admin_Controller extends Controller
 
     public function CanLogAdmin(Request $request,$id){
 
-
+        $requsetChangeAcessability=new SuperAdminServices();
+        $requsetChangeAcessability->Accesability($id);
         
-        $data = User::where('id', $id)->first();
-         
- 
-         if($data->status == '0'){
- 
-             $data->status = '1'; 
-             
- 
-         }else{
- 
-             $data->status = '0';
-             
-         }
- 
-         $data->save();
          return redirect('/admin-records');
  
      }
 
     public function DeleteAdmin($id){
 
+        $requsetDelete = new SuperAdminServices();
+        $requsetDelete->DeleteAdmin($id);
 
-        DB::table("users")->where("id", $id)->delete();
-        DB::table("role_users")->where("user_id", $id)->delete();
-        DB::table("user_details")->where("id", $id)->delete();
-        DB::table("employee_officials")->where("id", $id)->delete();
-        DB::table("employee_financials")->where("id", $id)->delete();
-        DB::table("employee_ots")->where("id", $id)->delete();
-
-
-    return redirect('/admin-records');
+        return redirect('/admin-records');
     
     }
 }
