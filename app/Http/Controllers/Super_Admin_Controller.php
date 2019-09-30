@@ -144,13 +144,14 @@ class Super_Admin_Controller extends Controller
 
 
         $finance=Employee_financial::find($id);
-        $current_ot=Employee_ot::find($id);
-        $id1=Auth::user()->id;
-        $propic=DB::table("user_details")->where("id", $id1)->get();
         $banks=DB::table('banks')->get();
         $babranchs=DB::table('bank_branchs')->get();
+
+        $current_ot=Employee_ot::find($id);
         $ots = DB::table('ot_data')->get();
-        
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
 
         return view('admin.admin_finance_edit',compact(['finance','propic','banks','babranchs','current_ot','ots']));
 
@@ -159,34 +160,9 @@ class Super_Admin_Controller extends Controller
     
     public function updatesFinance(Request $request,$id){
         
-        $finanace=Employee_financial::find($id);
-        $ot=Employee_ot::find($id);
-        $this->validate($request,[
-            
-            'fixed_allowances' => 'required|max:255',
-            'fixed_deductions' => 'required|max:255',
-            'ot' => 'required|max:255',
-            'bank' => 'required|max:255',
-            'bbranch' => 'required|max:255',
-            'acc' => 'required|max:255',
-        ],
-        [
-            'fixed_allowances.required' => 'Please enter the Fixed Allowance',
-            'fixed_deductions.required' => 'Please enter the Fixed Deduction',
-            'ot.required' => 'Is OT allowed',
-            'bank.required' => 'Select the Bank',
-            'bbranch.required' => 'Select the Bank Branch',
-            'acc.required' => 'Enter the Account number',
-        ]);
-        $finanace->fixed_allowances=$request->fixed_allowances;
-        $finanace->fixed_deductions=$request->fixed_deductions;
-        $finanace->bank=$request->bank;
-        $finanace->bbranch=$request->bbranch;
-        $ot->ot=$request->ot;
-        $finanace->acc=$request->acc;
 
-        $finanace->save();
-        $ot->save();
+        $requestAdminFinanceUpdates=new SuperAdminServices();
+        $requestAdminFinanceUpdates->AdminFinanceUpdates($request,$id);
 
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
