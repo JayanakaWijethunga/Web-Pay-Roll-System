@@ -117,8 +117,8 @@ class Super_Admin_Controller extends Controller
     }
 
     public function showEditBasicForm($id){
-        $id=Auth::user()->id;
-        $propic=DB::table("user_details")->where("id", $id)->get();
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $basics=User_detail::find($id);
         return view('admin.admin_basic_edit',compact(['basics','propic']));
 
@@ -126,22 +126,16 @@ class Super_Admin_Controller extends Controller
 
     public function updatesBasics(Request $request,$id){
         
-        $basic=User_detail::find($id);
-        $basic->ssn=$request->ssn;
-        $basic->first_name=$request->first_name;
-        $basic->last_name=$request->last_name;
-        $basic->dob=$request->dob;
-        $basic->address_line_1=$request->address_line_1;
-        $basic->address_line_2=$request->address_line_2;
-        $basic->phoneNumber=$request->phoneNumber;
-
-        $basic->save();
+       
+        $requestAdminBasicUpdates=new SuperAdminServices();
+        $requestAdminBasicUpdates->AdminBasicUpdates($request,$id);
         
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
         $data1 = DB::table("user_details")->where("id", $id)->get();
         $data2 = DB::table("employee_officials")->where("id", $id)->get();
         $data3 = DB::table("employee_financials")->where("id", $id)->get();
-        $id1=Auth::user()->id;
-        $propic=DB::table("user_details")->where("id", $id1)->get();
+        
         return view('admin.admin_profile',compact(['data1','data2','data3','propic']));
         
     }
