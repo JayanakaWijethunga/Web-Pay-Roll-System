@@ -63,24 +63,16 @@ class Super_Admin_Controller extends Controller
 
     public function Update_Avatar(Request $request){
 
-        if($request->hasFile('avatar')){
+        $id=Auth::user()->id;
+        $requestToUpdateAvatar=new SuperAdminServices();
+        $requestToUpdateAvatar->UpdateSadminAvatar($request,$id);
+        
 
-            $id=Auth::user()->id;
-            $avatar=$request->file('avatar');
-            $filename=time().'.'.$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
-
-            $propic1=User_detail::find($id);
-            $propic1->avatar=$filename;
-            $propic1->save();
-            //$office->obranch=$request->obranch;
-
-            $data = DB::table("user_details")->where("id", $id)->get();
-            $id1=Auth::user()->id;
-            $propic=DB::table("user_details")->where("id", $id1)->get();
-            return view('sadmin.sadmin-profile-pic',compact('data','propic'));
-
-        }
+        $data = DB::table("user_details")->where("id", $id)->get();
+        
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+        return view('sadmin.sadmin-profile-pic',compact('data','propic'));
 
     }
 
@@ -192,26 +184,9 @@ class Super_Admin_Controller extends Controller
     
     public function updatesOffice(Request $request,$id){
         
-        $office=Employee_official::find($id);
+        $requestAdminOfficeUpdates=new SuperAdminServices();
+        $requestAdminOfficeUpdates->AdminOfficeUpdates($request,$id);
         
-        $this->validate($request,[
-            
-            'obranch' => 'required|max:255',
-            'dept' => 'required|max:255',
-            'des' => 'required|max:255',
-        ],
-        [
-            'obranch.required' => 'Select the company branch',
-            'dept.required' => 'Select the Department',
-            'des.required' => 'Select the Designation',
-        ]);
-
-        $office->obranch=$request->obranch;
-        $office->dept=$request->dept;
-        $office->des=$request->des;
-        
-
-        $office->save();
 
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
