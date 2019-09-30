@@ -12,6 +12,8 @@ use App\Employee_official;
 use DB;
 use Image;
 
+
+use App\Services\UserServices;
 use Illuminate\Http\Request;
 
 class User_Controller extends Controller
@@ -82,17 +84,12 @@ class User_Controller extends Controller
 
     public function Update_Avatar(Request $request){
 
-        if($request->hasFile('avatar')){
+       
 
             $id=Auth::user()->id;
-            $avatar=$request->file('avatar');
-            $filename=time().'.'.$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
 
-            $propic1=User_detail::find($id);
-            $propic1->avatar=$filename;
-            $propic1->save();
-            //$office->obranch=$request->obranch;
+            $requestToUpdateAvatar=new UserServices();
+            $requestToUpdateAvatar->UpdateUserAvatar($request,$id);
 
             $data = DB::table("user_details")->where("id", $id)->get();
 
@@ -101,7 +98,7 @@ class User_Controller extends Controller
 
             return view('user.user-profile-pic',compact(['data','propic']));
 
-        }
+        
 
     }
 
@@ -143,19 +140,9 @@ class User_Controller extends Controller
 
     public function updatesBasics(Request $request,$id){
         
-        
+        $requestEmpBasicUpdates=new UserServices();
+        $requestEmpBasicUpdates->EmpBasicUpdates($request,$id);
 
-        $basic=User_detail::find($id);
-        $basic->ssn='170238A';
-        $basic->first_name=$request->first_name;
-        $basic->last_name=$request->last_name;
-        $basic->dob=$request->dob;
-        $basic->address_line_1=$request->address_line_1;
-        $basic->address_line_2=$request->address_line_2;
-        $basic->phoneNumber=$request->phoneNumber;
-
-        $basic->save();
-        
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
         $data6 = DB::table("employee_financials")->where("id", $id)->get();
@@ -187,34 +174,8 @@ class User_Controller extends Controller
     
     public function updatesFinance(Request $request,$id){
         
-        $finanace=Employee_financial::find($id);
-        $ot=Employee_ot::find($id);
-        $this->validate($request,[
-            
-            'fixed_allowances' => 'required|max:255',
-            'fixed_deductions' => 'required|max:255',
-            'ot' => 'required|max:255',
-            'bank' => 'required|max:255',
-            'bbranch' => 'required|max:255',
-            'acc' => 'required|max:255',
-        ],
-        [
-            'fixed_allowances.required' => 'Please enter the Fixed Allowance',
-            'fixed_deductions.required' => 'Please enter the Fixed Deduction',
-            'ot.required' => 'Is OT allowed',
-            'bank.required' => 'Select the Bank',
-            'bbranch.required' => 'Select the Bank Branch',
-            'acc.required' => 'Enter the Account number',
-        ]);
-        $finanace->fixed_allowances=$request->fixed_allowances;
-        $finanace->fixed_deductions=$request->fixed_deductions;
-        $finanace->bank=$request->bank;
-        $finanace->bbranch=$request->bbranch;
-        $ot->ot=$request->ot;
-        $finanace->acc=$request->acc;
-
-        $finanace->save();
-        $ot->save();
+        $requestEmpFinanceUpdates=new UserServices();
+        $requestEmpFinanceUpdates->EmpFinanceUpdates($request,$id);
 
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
@@ -245,26 +206,8 @@ class User_Controller extends Controller
     
     public function updatesOffice(Request $request,$id){
         
-        $office=Employee_official::find($id);
-        
-        $this->validate($request,[
-            
-            'obranch' => 'required|max:255',
-            'dept' => 'required|max:255',
-            'des' => 'required|max:255',
-        ],
-        [
-            'obranch.required' => 'Select the company branch',
-            'dept.required' => 'Select the Department',
-            'des.required' => 'Select the Designation',
-        ]);
-
-        $office->obranch=$request->obranch;
-        $office->dept=$request->dept;
-        $office->des=$request->des;
-        
-
-        $office->save();
+        $requestEmpOfficeUpdates=new UserServices();
+        $requestEmpOfficeUpdates->EmpOfficeUpdates($request,$id);
 
         $data4 = DB::table("user_details")->where("id", $id)->get();
         $data5 = DB::table("employee_officials")->where("id", $id)->get();
@@ -279,39 +222,19 @@ class User_Controller extends Controller
 
     public function CanLogEmp(Request $request,$id){
 
+        $requsetChangeAcessability=new UserServices();
+        $requsetChangeAcessability->Accesability($id);
 
-        
-        $data = User::where('id', $id)->first();
-         
- 
-         if($data->status == '0'){
- 
-             $data->status = '1'; 
-             
- 
-         }else{
- 
-             $data->status = '0';
-             
-         }
- 
-         $data->save();
          return redirect('/emp-records');
  
      }
 
     public function DeleteEmployee($id){
 
+        $requsetDelete = new UserServices();
+        $requsetDelete->DeleteEmp($id);
 
-        DB::table("users")->where("id", $id)->delete();
-        DB::table("role_users")->where("user_id", $id)->delete();
-        DB::table("user_details")->where("id", $id)->delete();
-        DB::table("employee_officials")->where("id", $id)->delete();
-        DB::table("employee_financials")->where("id", $id)->delete();
-        DB::table("employee_ots")->where("id", $id)->delete();
-
-
-    return redirect('/emp-records');
+        return redirect('/emp-records');
     
     }
     
