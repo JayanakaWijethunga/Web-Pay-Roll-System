@@ -120,6 +120,13 @@
   color: #fff;
 }
 
+.banner_part .banner_text ul li {
+  font-size: 20px;
+  line-height: 1.8;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
 /* line 76, /Applications/MAMP/htdocs/palash/cl/july 2019/190 Pexcon Construction/190 Pexcon Construction html/sass/_banner.scss */
 .banner_part .banner_text .btn_1 {
   margin-top: 44px;
