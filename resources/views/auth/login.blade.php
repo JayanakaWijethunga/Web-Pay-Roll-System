@@ -8,7 +8,7 @@
 <li class="">
         <a href="{{route('myhome')}}" class="">Home</a>
     </li>
-    <li class="">
+    <li class="active">
         <a href="{{route('login')}}" class="active">Login</a>
     </li>
 

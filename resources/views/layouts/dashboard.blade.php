@@ -67,7 +67,15 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Actions</li>
         <!-- Optionally, you can add icons to the links -->
+        
         <li class="active">
+          @section('homes')
+          @show
+  
+          <i class="fa fa-home"></i><span>Home</span></a></li>
+        
+        
+        <li class="">
         @section('records')
         @show
 

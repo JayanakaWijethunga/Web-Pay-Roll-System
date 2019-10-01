@@ -4,7 +4,7 @@
 
 @section('headers')
 
-<li class="">
+<li class="active">
     <a href="{{route('myhome')}}" class="active">Home</a>
 </li>
 <li class="">

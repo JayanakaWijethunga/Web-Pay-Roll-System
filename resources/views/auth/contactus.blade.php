@@ -11,7 +11,7 @@
         <a href="{{route('login')}}" class="">Login</a>
     </li>
 
-    <li class="">
+    <li class="active">
         <a href="{{route('contactus')}}" class="active">Contact</a>
     </li>
 
