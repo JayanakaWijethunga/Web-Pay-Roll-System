@@ -22,7 +22,7 @@
 
 @section('body_part')
 <div class="text-center icon">
-    <span class="fa fa-user"></span>
+    <span class="fa fa-home"></span>
 </div>
 <section class="banner_part">
         <div class="">
