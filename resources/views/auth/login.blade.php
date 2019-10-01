@@ -8,9 +8,7 @@
     <li class="">
         <a href="{{route('login')}}" class="active">Login</a>
     </li>
-    <li class="">
-        <a href="{{route('aboutus')}}" class="">About Us</a>
-    </li>
+
     <li class="">
         <a href="{{route('contactus')}}" class="">Contact</a>
     </li>
