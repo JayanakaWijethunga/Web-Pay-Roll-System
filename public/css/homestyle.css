@@ -126,6 +126,13 @@
   color: #fff;
 }
 
+.banner_part .banner_text th,td {
+  font-size: 15px;
+  line-height: 1.8;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
 .banner_part .banner_text ul li {
   font-size: 20px;
   line-height: 1.8;

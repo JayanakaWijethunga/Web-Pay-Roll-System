@@ -30,7 +30,9 @@
                         <div class="banner_text_iner">
                             <h1>Welcome
                                 to <span>Treintec</span> Technologies</h1>
-                            <p>Provide best software solutions for both web and mobile applications</p>
+                            <p>
+                              Better software Solutions
+                            </p>
                             <a href="{{route('contactus')}}" class="btn_1">More Details </a>
                         </div>
                     </div>
