@@ -8,11 +8,6 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
-html,
-body {
-	height: 100%;
-	font-family: 'Josefin Sans', sans-serif;
-}
 
 h1,
 h2,
@@ -34,11 +29,7 @@ h3 {
 	font-size: 30px;
 }
 
-p {
-	font-size: 18px;
-	color: #808181;
-	line-height: 1.8;
-}
+
 
 img {
 	max-width: 100%;

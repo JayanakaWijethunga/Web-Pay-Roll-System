@@ -17,8 +17,7 @@
   
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../css/flaticon.css"/>
+    
     <link rel="stylesheet" href="../css/owl.carousel.css"/>
     <link rel="stylesheet" href="../css/magnific-popup.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
@@ -88,7 +87,7 @@
           @show
   
           <i class="fa fa-home"></i><span>Home</span></a></li>
-          
+
         <li class="">
         @section('records')
         @show
