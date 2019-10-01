@@ -25,7 +25,7 @@
         <span class="fa fa-user"></span>
     </div>
     <div class="content-bottom">
-        <form action="{{ route('login') }}" method="post">
+        <form action="{{ route('login') }}" method="post" autocomplete="off">
         @csrf
                 <div class="">
                 @if ($errors->first('email'))

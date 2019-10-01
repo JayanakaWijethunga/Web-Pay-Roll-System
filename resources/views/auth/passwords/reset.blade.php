@@ -61,7 +61,7 @@
 				<span class="fa fa-key"></span>
 			</div>
 			<div class="content-bottom">
-				<form action="{{ route('password.update') }}" method="post">
+				<form action="{{ route('password.update') }}" method="post" autocomplete="off">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
                         <div class="">

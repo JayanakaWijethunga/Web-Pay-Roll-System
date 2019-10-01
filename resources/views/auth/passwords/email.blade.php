@@ -61,7 +61,7 @@
 				<span class="fa fa-key"></span>
 			</div>
 			<div class="content-bottom">
-				<form action="{{ route('password.email') }}" method="post">
+				<form action="{{ route('password.email') }}" method="post" autocomplete="off">
                 @csrf
                         <div class="">
                         @if ($errors->first('email'))

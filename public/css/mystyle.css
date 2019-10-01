@@ -456,7 +456,7 @@ ul.links-unordered-list li a {
     padding: 10px 0 10px 15px;
     font-size: 17px;
     font-weight: 300;
-	color:#ddd;
+	color:#ccc;
     letter-spacing: 1px;
     border: none;
     background: transparent;
@@ -712,5 +712,16 @@ input:checked+.slider:before {
 @media screen and (max-width: 320px) {
    
 }
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px white inset;/*your box-shadow*/
+    -webkit-text-fill-color: #333;
+} 
 
 /* -- //Responsive code -- */
