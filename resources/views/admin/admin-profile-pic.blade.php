@@ -17,6 +17,10 @@
 <a href="{{ route('admin-myprofile') }}">
 @endsection
 
+@section('homes')
+<a href="{{ route('admin.home') }}">
+@endsection
+
 @section('records')
 <a href="{{ route('user.records') }}">
 @endsection
