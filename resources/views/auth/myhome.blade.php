@@ -1,5 +1,7 @@
 @extends('layouts.welcome')
 
+@section('title','Home')
+
 @section('headers')
 
 <li class="">
