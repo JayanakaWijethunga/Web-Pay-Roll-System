@@ -93,8 +93,9 @@
                     
                     
                     <button type='submit' class="btn btn-danger">
-                    <span class="glyphicon glyphicon-remove"></span> Delete
+                    <span class="glyphicon glyphicon-remove" class="delete"></span> Delete
                     </button>
+                    
                     </form>
 
                     
@@ -103,7 +104,9 @@
 
                     
                     </tr>
-					@endforeach
+                    
+                    @endforeach
+                    
 @endsection
 
 @section('ngv')
@@ -111,6 +114,7 @@
         <a href="{{route('admin.registerform')}}" class="btn btn-success">Add New Admin</a>
         <a href="{{route('sadmin.home')}}" class="btn btn-primary">Back</a>
 
+        
 @endsection
 
 
