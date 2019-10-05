@@ -229,13 +229,22 @@ class User_Controller extends Controller
  
      }
 
-    public function DeleteEmployee($id){
+    /*public function DeleteEmployee($id){
 
         $requsetDelete = new UserServices();
         $requsetDelete->DeleteEmp($id);
 
         return redirect('/emp-records');
     
+    }*/
+
+    public function DeleteEmployee(Request $request){
+
+        $requsetDelete = new UserServices();
+        $requsetDelete->DeleteEmp($request->empl_id);
+
+        return back();
+
     }
     
 

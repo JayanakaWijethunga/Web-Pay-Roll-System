@@ -216,7 +216,7 @@ class Admin_Controller extends Controller
      }
 
 
-    public function DeleteUser($id){
+    /*public function DeleteUser($id){
 
 
         $requsetDelete = new AdminServices();
@@ -225,5 +225,14 @@ class Admin_Controller extends Controller
 
         return redirect('/user-records');
     
+    }*/
+
+    public function DeleteUser(Request $request){
+
+        $requsetDelete = new AdminServices();
+        $requsetDelete->DeleteUser($request->empl_id);
+
+        return back();
+
     }
 }

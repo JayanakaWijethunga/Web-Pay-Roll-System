@@ -83,7 +83,7 @@
 
                     </td>
 
-                    <td class="priority-5">
+                    <!--<td class="priority-5">
 
                     <form action="/deleteuser/{{ $emp->user_id }}" method='post' >
                     
@@ -98,7 +98,15 @@
 
                     
 
-                    </td>
+                    </td>-->
+
+                    <td class="priority-5">
+                        
+                            <button type='button' class="btn btn-danger" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#myModal">
+                              <span class="glyphicon glyphicon-remove" ></span> Delete
+                            </button>  
+                            
+                      </td>
 
                     
                     </tr>
@@ -110,4 +118,8 @@
         <a href="{{route('user.registerform')}}" class="btn btn-success">Add New User</a>
         <a href="{{route('admin.home')}}" class="btn btn-primary">Back</a>
 
+@endsection
+
+@section('delpath')
+<form action="/deleteuser" method="post">
 @endsection

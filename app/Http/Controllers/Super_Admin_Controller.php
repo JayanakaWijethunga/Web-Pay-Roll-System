@@ -206,12 +206,21 @@ class Super_Admin_Controller extends Controller
  
      }
 
-    public function DeleteAdmin($id){
+    /*public function DeleteAdmin($id){
 
         $requsetDelete = new SuperAdminServices();
         $requsetDelete->DeleteAdmin($id);
 
         return redirect('/admin-records');
     
+    }*/
+
+    public function DeleteAdmin(Request $request){
+
+        $requsetDelete = new SuperAdminServices();
+        $requsetDelete->DeleteAdmin($request->empl_id);
+
+        return back();
+
     }
 }

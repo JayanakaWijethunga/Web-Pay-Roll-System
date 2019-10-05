@@ -58,7 +58,10 @@ Route::post('emp-register', 'Employee\RegisterController@register');
 
 Route::get('emp-records', 'User_Controller@EmpRecords')->name('employee.records');
 Route::get('/emp-profile/{id}', 'User_Controller@EmpProfiles')->name('emp.profiles');
-Route::delete('/deleteemp/{id}','User_Controller@DeleteEmployee');
+//Route::delete('/deleteemp/{id}','User_Controller@DeleteEmployee');
+
+Route::delete('/deleteemp','User_Controller@DeleteEmployee');
+
 Route::get('/emp-basic-edit/{id}', 'User_Controller@showEditBasicForm')->name('emp.editbasic');
 Route::post('/emp-basic-update/{id}', 'User_Controller@updatesBasics');
 Route::get('/emp-finance-edit/{id}', 'User_Controller@showEditFinanceForm')->name('emp.editfinance');
@@ -69,7 +72,10 @@ Route::post('/canlogemp/{id}','User_Controller@CanLogEmp');
 
 Route::get('user-records', 'Admin_Controller@UserRecords')->name('user.records');
 Route::get('/user-profile/{id}', 'Admin_Controller@UserProfiles')->name('user.profiles');
-Route::delete('/deleteuser/{id}','Admin_Controller@DeleteUser');
+//Route::delete('/deleteuser/{id}','Admin_Controller@DeleteUser');
+
+Route::delete('/deleteuser','Admin_Controller@DeleteUser');
+
 Route::get('/user-basic-edit/{id}', 'Admin_Controller@showEditBasicForm')->name('user.editbasic');
 Route::post('/user-basic-update/{id}', 'Admin_Controller@updatesBasics');
 Route::get('/user-finance-edit/{id}', 'Admin_Controller@showEditFinanceForm')->name('user.editfinance');
@@ -80,7 +86,10 @@ Route::post('/canloguser/{id}','Admin_Controller@CanLogUser');
 
 Route::get('admin-records', 'Super_Admin_Controller@AdminRecords')->name('admin.records');
 Route::get('/admin-profile/{id}', 'Super_Admin_Controller@AdminProfiles')->name('admin.profiles');
-Route::delete('/deleteadmin/{id}','Super_Admin_Controller@DeleteAdmin');
+//Route::delete('/deleteadmin/{id}','Super_Admin_Controller@DeleteAdmin');
+
+Route::delete('/deleteadmin','Super_Admin_Controller@DeleteAdmin');
+
 Route::get('/admin-basic-edit/{id}', 'Super_Admin_Controller@showEditBasicForm')->name('admin.editbasic');
 Route::post('/admin-basic-update/{id}', 'Super_Admin_Controller@updatesBasics');
 Route::get('/admin-finance-edit/{id}', 'Super_Admin_Controller@showEditFinanceForm')->name('admin.editfinance');

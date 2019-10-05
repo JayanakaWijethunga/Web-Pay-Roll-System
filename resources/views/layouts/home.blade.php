@@ -19,9 +19,9 @@
   
   
   <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
   
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 
 </head>
@@ -141,6 +141,7 @@
                 <th class="priority-3">Edit</th>
                 <th class="priority-4">Accessability</th>
                 <th class="priority-5">Delete</th>
+                
 
                 
                 
@@ -160,6 +161,35 @@
                 @section('ngv')
                 
                 @show
+
+                <!-- Modal -->
+<div class="modal modal-danger fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title pull-center" id="myModalLabel">Delete Confirmation</h3>
+      </div>
+      <div class="modal-body">
+          
+          @section('delpath')
+          
+          @show
+          
+          {{ csrf_field() }}
+          {{ method_field('delete') }}
+          <p>This Action will delete the record from the database, Permenantly</p>
+          <input type="hidden" name="empl_id" id="empl_id" value="">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No,Close</button>
+        <button type="submit" class="btn btn-warning">Yes! Delete</button>
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
                         
 				</div>
             </div>
@@ -201,7 +231,24 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  
+  <script>
+      $('#myModal').on('show.bs.modal', function (event) {
+        
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var getId = button.data("role") // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        
+        var modal = $(this)
+        
+        modal.find('.modal-body #empl_id').val(getId)
+        
+      })
+      </script>
+  
 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 

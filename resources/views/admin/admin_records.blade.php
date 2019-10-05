@@ -83,7 +83,7 @@
 
                     </td>
 
-                    <td class="priority-5">
+                    <!--<td class="priority-5">
                     
                     
                     <form action="/deleteadmin/{{ $emp->user_id }}" method='post' >
@@ -98,8 +98,18 @@
                     
                     </form>
 
-                    
+                    <button type="button" data-role="{{ $emp->user_id }}" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            Launch demo modal
+                          </button>
 
+                    </td>-->
+
+                    <td class="priority-5">
+                        
+                          <button type='button' class="btn btn-danger" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-remove" ></span> Delete
+                          </button>  
+                          
                     </td>
 
                     
@@ -114,7 +124,15 @@
         <a href="{{route('admin.registerform')}}" class="btn btn-success">Add New Admin</a>
         <a href="{{route('sadmin.home')}}" class="btn btn-primary">Back</a>
 
-        
+
+          <form action="/deleteadmin" method="post">
+    
+
 @endsection
+
+@section('delpath')
+<form action="/deleteadmin" method="post">
+@endsection
+    
 
 
