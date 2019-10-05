@@ -197,7 +197,7 @@ class Super_Admin_Controller extends Controller
         
     }
 
-    public function CanLogAdmin(Request $request,$id){
+    /*public function CanLogAdmin(Request $request,$id){
 
         $requsetChangeAcessability=new SuperAdminServices();
         $requsetChangeAcessability->Accesability($id);
@@ -206,7 +206,7 @@ class Super_Admin_Controller extends Controller
  
      }
 
-    /*public function DeleteAdmin($id){
+    public function DeleteAdmin($id){
 
         $requsetDelete = new SuperAdminServices();
         $requsetDelete->DeleteAdmin($id);
@@ -214,6 +214,15 @@ class Super_Admin_Controller extends Controller
         return redirect('/admin-records');
     
     }*/
+
+    public function CanLogAdmin(Request $request){
+
+        $requsetChangeAcessability=new SuperAdminServices();
+        $requsetChangeAcessability->Accesability($request->empl_id);
+        
+        return back();
+ 
+     }
 
     public function DeleteAdmin(Request $request){
 

@@ -96,4 +96,6 @@ Route::get('/admin-finance-edit/{id}', 'Super_Admin_Controller@showEditFinanceFo
 Route::post('/admin-finance-update/{id}', 'Super_Admin_Controller@updatesFinance');
 Route::get('/admin-office-edit/{id}', 'Super_Admin_Controller@showEditOfficeForm')->name('admin.editfinance');
 Route::post('/admin-office-update/{id}', 'Super_Admin_Controller@updatesOffice');
-Route::post('/canlogadmin/{id}','Super_Admin_Controller@CanLogAdmin');
+//Route::post('/canlogadmin/{id}','Super_Admin_Controller@CanLogAdmin');
+
+Route::post('/canlogadmin','Super_Admin_Controller@CanLogAdmin');

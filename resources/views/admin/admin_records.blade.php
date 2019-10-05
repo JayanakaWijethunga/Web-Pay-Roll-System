@@ -60,10 +60,9 @@
                     <td class="priority-4">
                     
                     
-                    <form action="/canlogadmin/{{ $emp->user_id }}" method='post' >
+                    <!--<form action="/canlogadmin/{{ $emp->user_id }}" method='post' >
                     
                     {{ csrf_field() }}
-                    
                     
                     
                     <button type='submit' class="btn btn-warning">
@@ -78,7 +77,20 @@
                     @endif
                     </button>
                     </form>
+                -->
 
+                    <button type='button' class="btn btn-warning" data-curst="{{$emp->status}}" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#accessability">
+                    
+                    
+                    @if ($emp->status == '0')
+                    <span class="glyphicon glyphicon-lock"></span> 
+                    Block
+                    @else
+                    <span class="glyphicon glyphicon-eye-open"></span> 
+                    Unblock
+                    @endif
+
+                    </button>
                     
 
                     </td>
@@ -114,6 +126,9 @@
 
                     
                     </tr>
+
+                    
+                        
                     
                     @endforeach
                     
@@ -125,7 +140,7 @@
         <a href="{{route('sadmin.home')}}" class="btn btn-primary">Back</a>
 
 
-          <form action="/deleteadmin" method="post">
+          
     
 
 @endsection
@@ -133,6 +148,12 @@
 @section('delpath')
 <form action="/deleteadmin" method="post">
 @endsection
+
+@section('accpath')
+<form action="/canlogadmin" method="post">
+@endsection
+
+
     
 
 

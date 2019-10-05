@@ -190,6 +190,46 @@
     </div>
   </div>
 </div>
+
+<!--BlockUnBlock-->
+                <!-- Modal -->
+                <div class="modal modal-warning fade in" id="accessability" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h3 class="modal-title pull-center" id="myModalLabelacc"></h3>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <p id="acclvl"></p>
+
+                            @section('accpath')
+                            @show
+                            
+                            {{ csrf_field() }}
+                            
+                            
+                            <input type="hidden" name="empl_id" id="empl_id" value="">
+                            <input type="hidden" name="acc_status" id="acc_status" value="">
+                            
+
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">No,Close</button>
+                          <button type="submit" class="btn btn-primary" id="levels" name="xasc"></button>
+                          
+                              
+                          @show
+                          
+                        
+                        </div>
+                    </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!--END MODEL-->
                         
 				</div>
             </div>
@@ -244,7 +284,40 @@
         
         modal.find('.modal-body #empl_id').val(getId)
         
-      })
+      });
+
+      $('#accessability').on('show.bs.modal', function (event) {
+        
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var getId = button.data("role")
+        var getCurrentStatues = button.data("curst") 
+        
+
+        if(getCurrentStatues == 0){
+          
+          $("#levels").text("Block");
+          $("#myModalLabelacc").text("Confirm For Access Denite");
+          $("#acclvl").text("Do You Want to Block the access?");
+
+          
+        }else{
+          $("#levels").text("Unlock");
+          $("#myModalLabelacc").text("Confirm For Access Permission");
+          $("#acclvl").text("Do You Want to Unblock the access?");
+        }
+
+         // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        
+        var modal = $(this)
+        
+        modal.find('.modal-body #empl_id').val(getId)
+        //modal.find('.modal-body #acc_status').val(getCurrentStatues)
+        
+      });
+
+
       </script>
   
 
