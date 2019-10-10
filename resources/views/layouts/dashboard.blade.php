@@ -140,15 +140,17 @@
 
 </section>
 </div>
+</div>
+
 
 <footer class="main-footer">
 
     <div class="pull-right hidden-xs">
-    Company Name Here
+      Company Name Here
     </div>
-
+    
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-</footer>
+    </footer>
 
   <div class="control-sidebar-bg"></div>
 </div>
