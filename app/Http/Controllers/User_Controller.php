@@ -220,7 +220,7 @@ class User_Controller extends Controller
         
     }
 
-    public function CanLogEmp(Request $request,$id){
+    /*public function CanLogEmp(Request $request,$id){
 
         $requsetChangeAcessability=new UserServices();
         $requsetChangeAcessability->Accesability($id);
@@ -229,7 +229,7 @@ class User_Controller extends Controller
  
      }
 
-    /*public function DeleteEmployee($id){
+    public function DeleteEmployee($id){
 
         $requsetDelete = new UserServices();
         $requsetDelete->DeleteEmp($id);
@@ -237,6 +237,15 @@ class User_Controller extends Controller
         return redirect('/emp-records');
     
     }*/
+
+    public function CanLogEmp(Request $request){
+
+        $requsetChangeAcessability=new UserServices();
+        $requsetChangeAcessability->Accesability($request->empl_id);
+        
+        return back();
+ 
+     }
 
     public function DeleteEmployee(Request $request){
 

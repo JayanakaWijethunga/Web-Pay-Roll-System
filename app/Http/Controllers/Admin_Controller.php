@@ -206,7 +206,7 @@ class Admin_Controller extends Controller
         
     }
 
-    public function CanLogUser(Request $request,$id){
+    /*public function CanLogUser(Request $request,$id){
 
         $requsetChangeAcessability=new AdminServices();
         $requsetChangeAcessability->Accesability($id);
@@ -216,7 +216,7 @@ class Admin_Controller extends Controller
      }
 
 
-    /*public function DeleteUser($id){
+    public function DeleteUser($id){
 
 
         $requsetDelete = new AdminServices();
@@ -226,6 +226,16 @@ class Admin_Controller extends Controller
         return redirect('/user-records');
     
     }*/
+
+    public function CanLogUser(Request $request){
+
+
+        $requsetChangeAcessability=new AdminServices();
+        $requsetChangeAcessability->Accesability($request->empl_id);
+        
+        return back();
+ 
+     }
 
     public function DeleteUser(Request $request){
 

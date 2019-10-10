@@ -55,7 +55,7 @@
         </form>
         </td>
 
-        <td class="priority-4">
+        <!--<td class="priority-4">
                     
                     
                     <form action="/canlogemp/{{ $emp->user_id }}" method='post' >
@@ -79,7 +79,25 @@
 
                     
 
-                    </td>
+                    </td>-->
+
+                    <td class="priority-4">
+
+                        <button type='button' class="btn btn-warning" data-curst="{{$emp->status}}" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#accessability">
+                      
+                      
+                          @if ($emp->status == '0')
+                          <span class="glyphicon glyphicon-lock"></span> 
+                          Block
+                          @else
+                          <span class="glyphicon glyphicon-eye-open"></span> 
+                          Unblock
+                          @endif
+      
+                          </button>
+                          
+      
+                          </td>
 
         <!--<td class="priority-5">
 
@@ -121,4 +139,8 @@
 
 @section('delpath')
 <form action="/deleteemp" method="post">
+@endsection
+
+@section('accpath')
+<form action="/canlogemp" method="post">
 @endsection

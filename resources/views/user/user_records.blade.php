@@ -57,10 +57,10 @@
 
 
                     
-                    <td class="priority-4">
+                  <!--  <td class="priority-4">
                     
                     
-                    <form action="/canloguser/{{ $emp->user_id }}" method='post' >
+                   <form action="/canloguser/{{ $emp->user_id }}" method='post' >
                     
                     {{ csrf_field() }}
                     
@@ -81,7 +81,26 @@
 
                     
 
-                    </td>
+                    </td> -->
+
+                    <td class="priority-4">
+
+                      <button type='button' class="btn btn-warning" data-curst="{{$emp->status}}" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#accessability">
+                    
+                    
+                        @if ($emp->status == '0')
+                        <span class="glyphicon glyphicon-lock"></span> 
+                        Block
+                        @else
+                        <span class="glyphicon glyphicon-eye-open"></span> 
+                        Unblock
+                        @endif
+    
+                        </button>
+                        
+    
+                        </td>
+                    
 
                     <!--<td class="priority-5">
 
@@ -122,4 +141,10 @@
 
 @section('delpath')
 <form action="/deleteuser" method="post">
+@endsection
+
+
+
+  @section('accpath')
+<form action="/canloguser" method="post">
 @endsection
