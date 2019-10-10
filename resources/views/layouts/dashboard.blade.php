@@ -110,21 +110,45 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
+      <section class="content">
+<div class="row">
+<div class="col-md-6">
+<div class="box">
+          <div class="box-header with-border">
+              <h3 class="box-title">Current Users</h3>
+            </div>
+          
+          <div class="box-body">
+              <table class="table table-bordered">
+          
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Username</th>
+                  <th>E-mail</th>
+                  <th>Contact Number</th>
+                </tr>
+
   @section('contents')
-@show
-  </div>
+  @show
 
+</div>
+</div> 
+</div>
+</div>  
 
-  <!-- Main Footer 
-  <footer class="main-footer">
+</table>
+
+</section>
+</div>
+
+<footer class="main-footer">
 
     <div class="pull-right hidden-xs">
-      Anything you want
+    Company Name Here
     </div>
 
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-  </footer>-->
-
+</footer>
 
   <div class="control-sidebar-bg"></div>
 </div>
