@@ -44,7 +44,8 @@ Route::post('user-myprofile','User_Controller@Update_Avatar')->name('user-editmy
 Route::get('admin-register', 'Super_Admin_Controller@showRegistrationForm')->name('admin.registerform');
 Route::post('admin-register', 'Admin\RegisterController@register')->name('admin.registers');
 
-Route::get('admin-emp-upgrade', 'Admin_Controller@Emp_Upgrade')->name('admin.empup');
+Route::get('admin-emp-upgrade', 'Admin_Controller@Show_Emp_Upgrade')->name('admin.empup');
+Route::post('/emp_upgrade', 'Admin_Controller@Emp_Upgrade')->name('admin.empup_done');
 
 Route::get('adminmyprofile','Admin_Controller@MyProfile')->name('admin-myprofile');
 Route::get('admin-editmyprofile','Admin_Controller@EditProPic')->name('admin-editmyprofile');

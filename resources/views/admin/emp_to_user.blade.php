@@ -46,26 +46,14 @@
 					<td class="priority-2">{{$emp->email}}</td>
                     
                     <td class="priority-3">
-                    <form action="" method='get' >
-                    
-                    
-                    
-                    
-                    <button type='submit' class="btn btn-success">
-                    <span class="glyphicon glyphicon-edit"></span>Add as User
-                    </button>
-                    </form>
+                        <button type='button' class="btn btn-success" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#upgrade">
+                            <span class="glyphicon glyphicon-certificate" ></span> Add as User
+                          </button>  
                     </td>
 
-
-
-                    
-
-                    
+ 
                     </tr>
 
-                    
-                        
                     
                     @endforeach
                     
@@ -77,9 +65,10 @@
         <a href="{{route('admin.home')}}" class="btn btn-primary">Back</a>
 
 
-          
-    
+@endsection
 
+@section('upgrade_path')
+<form action="/emp_upgrade" method="post">
 @endsection
 
 

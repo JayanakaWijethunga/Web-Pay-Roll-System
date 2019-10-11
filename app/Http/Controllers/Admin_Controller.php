@@ -218,7 +218,7 @@ class Admin_Controller extends Controller
         
     }
 
-    public function Emp_Upgrade(){
+    public function Show_Emp_Upgrade(){
 
         $data = DB::table('role_users')
             ->join('users','role_users.user_id' , '=', 'users.id')
@@ -229,6 +229,16 @@ class Admin_Controller extends Controller
         $id=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id)->get();
         return view('admin.emp_to_user',compact(['propic','data']));   
+
+    }
+
+    public function Emp_Upgrade(Request $request){
+
+        
+        $upgradeEmp=new AdminServices();
+        $upgradeEmp->Upgrade_Post($request->empl_id);
+        
+        return back();
 
     }
 

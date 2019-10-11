@@ -13,6 +13,7 @@ use App\User_detail;
 use App\Employee_financial;
 use App\Employee_ot;
 use App\Employee_official;
+use App\role_user;
 use Image;
 
 class AdminServices 
@@ -44,6 +45,17 @@ class AdminServices
                 $data->status = '0';
             }
  
+        $data->save();
+
+    }
+
+    public function Upgrade_Post($id){
+
+        
+        $data = role_user::where('user_id', $id)->first();
+
+        $data->role_id = '3';
+
         $data->save();
 
     }
