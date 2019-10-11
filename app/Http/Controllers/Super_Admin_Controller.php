@@ -215,6 +215,30 @@ class Super_Admin_Controller extends Controller
     
     }*/
 
+    public function Show_User_Upgrade(){
+
+        $data = DB::table('role_users')
+            ->join('users','role_users.user_id' , '=', 'users.id')
+            ->join('roles', 'role_users.role_id', '=', 'roles.id')
+            ->where('roles.name', 'user')
+            ->get();
+
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
+        return view('sadmin.user_to_admin',compact(['propic','data']));   
+
+    }
+
+    public function User_Upgrade(Request $request){
+
+        
+        $upgradeUser=new SuperAdminServices();
+        $upgradeUser->Upgrade_Post($request->empl_id);
+        
+        return back();
+
+    }
+
     public function CanLogAdmin(Request $request){
 
         $requsetChangeAcessability=new SuperAdminServices();

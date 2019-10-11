@@ -53,6 +53,10 @@ Route::post('admin-myprofile','Admin_Controller@Update_Avatar')->name('admin-edi
 
 Route::get('sadmin-register', 'Super_admin\RegisterController@showRegistrationForm');
 Route::post('sadmin-register', 'Super_admin\RegisterController@register')->name('sadmin.registers');
+
+Route::get('sadmin-user-upgrade', 'Super_Admin_Controller@Show_User_Upgrade')->name('sadmin.userup');
+Route::post('/user_upgrade', 'Super_Admin_Controller@User_Upgrade')->name('sadmin.userup_done');
+
 Route::get('sadmin-myprofile','Super_Admin_Controller@MyProfile')->name('sadmin-myprofile');
 Route::get('sadmin-editmyprofile','Super_Admin_Controller@EditProPic')->name('sadmin-editmyprofile');
 Route::post('sadmin-myprofile','Super_Admin_Controller@Update_Avatar')->name('sadmin-myprofile_edit');;
