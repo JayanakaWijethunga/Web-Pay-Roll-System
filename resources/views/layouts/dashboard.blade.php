@@ -125,7 +125,6 @@
                   <th style="width: 10px">#</th>
                   <th>Username</th>
                   <th>E-mail</th>
-                  <th>Contact Number</th>
                 </tr>
 
   @section('contents')

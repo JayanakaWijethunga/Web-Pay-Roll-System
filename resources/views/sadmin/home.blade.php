@@ -31,4 +31,19 @@
 
 @section('functions01',"Manage Admins")
 
+@section('contents')
+
+
+      @foreach($data as $emp)
+      <tr>
+        <td>{{ $emp->user_id }}</td>
+        <td>{{ $emp->username }}</td>
+        <td>{{ $emp->email }}</td>
+        
+      </tr>
+      @endforeach
+
+ 
+@endsection
+
 

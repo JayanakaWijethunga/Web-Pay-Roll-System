@@ -31,13 +31,8 @@
 
 @section('functions01',"Manage Users")
 
-
-@section('title')
-
-@foreach($data4 as $emp)
-	<title>{{$emp->first_name}} Profile</title>
-@endforeach
-
+@section('heading')
+<center><h4 class='mains'>{{ Auth::user()->username }}'s Profile</h4></center>
 @endsection
 
 @section('header')

@@ -123,10 +123,13 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="play content-wrapper">
 
-  <section class="content-header">
+  <section class="content-header ">
+
+    <center>
   @section('heading')             
  
   @show
+    </center>
   </section>
 
   <section class="content">

@@ -39,9 +39,7 @@
         <td>{{ $emp->user_id }}</td>
         <td>{{ $emp->username }}</td>
         <td>{{ $emp->email }}</td>
-        @endforeach
-        @foreach($data1 as $emp)
-      <td>{{ $emp->phoneNumber }}</td>
+
         
       </tr>
       @endforeach
