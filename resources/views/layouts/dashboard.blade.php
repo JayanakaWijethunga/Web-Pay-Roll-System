@@ -115,7 +115,7 @@
 <div class="col-md-6">
 <div class="box">
           <div class="box-header with-border">
-              <h3 class="box-title">Current Users</h3>
+              <h3 class="box-title">Current @yield('title')s</h3>
             </div>
           
           <div class="box-body">

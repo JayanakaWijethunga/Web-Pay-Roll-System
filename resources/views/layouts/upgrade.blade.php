@@ -138,9 +138,8 @@
                     <tr>
                 <th class="priority-1">Username</th>
                 <th class="priority-2">E-mail</th>
-                <th class="priority-3">Edit</th>
-                <th class="priority-4">Accessability</th>
-                <th class="priority-5">Delete</th>
+                <th class="priority-3">Upgrade</th>
+                
                 
 
                 

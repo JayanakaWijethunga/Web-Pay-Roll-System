@@ -30,3 +30,21 @@
 @endsection
 
 @section('functions01',"Manage Users")
+
+@section('contents')
+
+
+      @foreach($data as $emp)
+      <tr>
+        <td>{{ $emp->user_id }}</td>
+        <td>{{ $emp->username }}</td>
+        <td>{{ $emp->email }}</td>
+        @endforeach
+        @foreach($data1 as $emp)
+      <td>{{ $emp->phoneNumber }}</td>
+        
+      </tr>
+      @endforeach
+
+ 
+@endsection

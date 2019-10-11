@@ -25,9 +25,21 @@ class Admin_Controller extends Controller
 
     public function ShowAdminHome(){
 
+        $data = DB::table('role_users')
+            ->join('users','role_users.user_id' , '=', 'users.id')
+            ->join('roles', 'role_users.role_id', '=', 'roles.id')
+            ->where('roles.name', 'admin')
+            ->get();
+
+        $data1 = DB::table('role_users')
+        ->join('user_details','role_users.user_id' , '=', 'user_details.id')
+        ->join('roles', 'role_users.role_id', '=', 'roles.id')
+        ->where('roles.name', 'admin')
+        ->get();
+
         $id=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id)->get();
-        return view('admin.home',compact('propic'));
+        return view('admin.home',compact(['propic','data','data1']));
 
     }
 
@@ -204,6 +216,20 @@ class Admin_Controller extends Controller
 
         return view('user.user_profile',compact(['data4','data5','data6','propic']));
         
+    }
+
+    public function Emp_Upgrade(){
+
+        $data = DB::table('role_users')
+            ->join('users','role_users.user_id' , '=', 'users.id')
+            ->join('roles', 'role_users.role_id', '=', 'roles.id')
+            ->where('roles.name', 'employee')
+            ->get();
+
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
+        return view('admin.emp_to_user',compact(['propic','data']));   
+
     }
 
     /*public function CanLogUser(Request $request,$id){

@@ -134,6 +134,7 @@
 
 @section('ngv')
 
+        <a href="{{route('admin.empup')}}" class="btn btn-success">Upgrade Employee</a>
         <a href="{{route('user.registerform')}}" class="btn btn-success">Add New User</a>
         <a href="{{route('admin.home')}}" class="btn btn-primary">Back</a>
 
