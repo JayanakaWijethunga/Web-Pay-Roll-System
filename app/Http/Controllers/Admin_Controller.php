@@ -237,6 +237,14 @@ class Admin_Controller extends Controller
 
     }
 
+    public function ShowCreateEvents(){
+
+        $id=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id)->get();
+        return view('admin.admin_create_event',compact(['propic']));   
+
+    }
+
     /*public function CanLogUser(Request $request,$id){
 
         $requsetChangeAcessability=new AdminServices();

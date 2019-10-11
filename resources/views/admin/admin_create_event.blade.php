@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.calander')
 
 @section('title',"Admin")
 
@@ -29,24 +29,8 @@
 <a href="{{ route('admin-myprofile') }}">
 @endsection
 
-@section('calander_event')
-<a href="{{ route('admin-create-calander-event') }}">
-@endsection
-
 @section('functions01',"Manage Users")
 
-@section('contents')
-
-
-      @foreach($data as $emp)
-      <tr>
-        <td>{{ $emp->user_id }}</td>
-        <td>{{ $emp->username }}</td>
-        <td>{{ $emp->email }}</td>
-
-        
-      </tr>
-      @endforeach
-
- 
+@section('calander_event')
+<a href="{{ route('admin-create-calander-event') }}">
 @endsection
