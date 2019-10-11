@@ -22,3 +22,13 @@ Route::apiResource('/user_detail','Api\UserDetailController');
 Route::get('/user/image','Api\UserDetailController@getProfilePic');
 
 Route::post('/user/update_image','Api\UserDetailController@updateProfilePic');
+
+/*
+Personal access client created successfully.
+Client ID: 1
+Client secret: ufhgrCQkt5VP1OrD1FiZHTuH1uJx9Q0h7dcYJ1Il
+Password grant client created successfully.
+Client ID: 2
+Client secret: nTgFIbDBD7Xbko7njne93wYRmOOOVAvCfVPfRlOC
+
+*/ 
