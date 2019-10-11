@@ -47,7 +47,7 @@
                     
                     <td class="priority-3">
                         <button type='button' class="btn btn-success" data-role="{{ $emp->user_id }}" data-toggle="modal" data-target="#upgrade">
-                            <span class="glyphicon glyphicon-certificate" ></span> Add as User
+                            <span class="glyphicon glyphicon-certificate" ></span> Add as Admin
                           </button>  
                     </td>
 
