@@ -46,11 +46,11 @@
           <td>{{ $event->end_date}}</td>
         
         
-    <td><a href="{{action('Calender\EventController@edit',$event['id'])}}" class="btn btn-success">
+    <td><a href="{{action('Calender\EventController@edit',$event['id'])}}" class="btn btn-success" >
         <i class="glyphicon glyphicon-edit"></i>Edit</a></td>
 
     <td>
-    <form action="{{action('Calender\EventController@destroy',$event['id'])}}" method="post">
+    <form action="{{action('Calender\EventController@destroy',$event['id'])}}" method="post" data-toggle="modal" data-target="#">
          {{ csrf_field() }}
          <input type="hidden" name="_method" value="DELETE" />
          <button type="submit" class="btn btn-danger">
@@ -62,3 +62,4 @@
         
 @endforeach
 @endsection
+

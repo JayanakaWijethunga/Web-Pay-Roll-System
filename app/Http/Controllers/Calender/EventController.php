@@ -108,7 +108,12 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        $events=Event::find($id);
+        //return view('events.events_edit',compact(['events','id','propic']));
     }
 
     /**

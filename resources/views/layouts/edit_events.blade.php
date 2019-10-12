@@ -15,6 +15,13 @@
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  
+  
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
+
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -67,30 +74,23 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Actions</li>
         <!-- Optionally, you can add icons to the links -->
-        
-        <li class="active">
+
+        <li class="">
           @section('homes')
           @show
   
           <i class="fa fa-home"></i><span>Home</span></a></li>
-        
-        
+
         <li class="">
         @section('records')
         @show
 
         <i class="fa fa-tasks"></i> <span>@yield('functions01')</span></a></li>
-        <li class="">
+        <li class="active">
         @section('myprofile')
         @show
 
         <i class="fa fa-user"></i> <span>My Profile</span></a></li>
-
-        <li class="">
-            @section('calander_event')
-            @show
-    
-            <i class="fa fa-user"></i> <span>Event management</span></a></li>
 
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
@@ -114,98 +114,113 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    
-      <section class="content">
+  <div class="play content-wrapper">
+  <section class="content-header">
 
-            <div class="row">
-                    <div class="col-xs-12">
-                      <div class="box">
-                        <div class="box-header">
-                          <h3 class="box-title">Event List</h3>
-            
-        
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body table-responsive no-padding">
-                          <table class="table table-hover">
-                            <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Color</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
-                            </tr>
-                            
-                            @section('cont')
-                            @show
+  
+  </section>
+  <section class="content" >
 
-                          </table>
-                        </div>
-                        <!-- /.box-body -->
-                      </div>
-                      <!-- /.box -->
-                    </div>
-                  </div>
+  
+  </section>
+  </div>
 
-</section>
-</div>
+
+  
+  <footer class="main-footer">
+
+<div class="pull-right hidden-xs">
+  Company Name Here
 </div>
 
-<!-- Modal -->
-<div class="modal modal-success fade in" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h3 class="modal-title pull-center" id="myModalLabel">Upgrade Confirmation</h3>
-            </div>
-            <div class="modal-body">
-                
-                    @section('mod')
-                    @show   
-          </div>
-        </div>
-      </div>
-      
-      
-          <!-- End_Modal -->
+<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+</footer>
 
-          
-
-<footer class="main-footer">
-
-    <div class="pull-right hidden-xs">
-      Company Name Here
-    </div>
-    
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-    </footer>
 
   <div class="control-sidebar-bg"></div>
 </div>
 
-<script>
-        $('#edit').on('show.bs.modal', function (event) {
-          
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var getId = button.data("role") // Extract info from data-* attributes
-          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-          
-          var modal = $(this)
-          
-          modal.find('.modal-body #empl_id').val(getId)
-          
-        });
-</script>
+
+
+
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <script src="../dist/js/adminlte.min.js"></script>
 
-</body>
+<script>
+
+$(document).ready(function(){
+// Prepare the preview for profile picture
+    $("#wizard-picture").change(function(){
+        readURL(this);
+    });
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+</script>
+
+<style>
+
+
+#wizard-picture {
+  display: inline-block;
+  width: 100%;
+  padding: 120px 0 0 0;
+  height: 100px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('uploads/basic/uploadicon.png') center center no-repeat;
+  border-radius: 20px;
+  background-size: 100px 100px;
+}
+
+h1 {
+	margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-weight: normal;
+	font-family: 'Ultra', sans-serif;   
+	font-size: 36px;
+	line-height: 42px;
+	text-transform: uppercase;
+	text-shadow: 0 2px white, 0 3px #777;
+}
+.demo-2 .main h2 {
+	margin: 1em 0 0.5em 0;
+	font-weight: normal;
+	position: relative;
+	text-shadow: 0 -1px rgba(0,0,0,0.6);
+	font-size: 28px;
+	line-height: 40px;
+	background: #355681;
+	background: rgba(53,86,129, 0.8);
+	border: 1px solid #fff;
+	padding: 5px 15px;
+	color: white;
+	border-radius: 0 10px 0 10px;
+	box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+	font-family: 'Muli', sans-serif;
+}
+</style>
+
 </html>

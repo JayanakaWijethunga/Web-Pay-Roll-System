@@ -152,37 +152,7 @@
 
     <!--end calander-->
 
-   <!-- Modal -->
-<div class="modal modal-success fade in" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title pull-center" id="myModalLabel">Upgrade Confirmation</h3>
-      </div>
-      <div class="modal-body">
-          
-          @section('upgrade_path')
-          
-          @show
-          
-          {{ csrf_field() }}
-          
-          <p>This Action will upgrade the access level.</p>
-          <input type="hidden" name="empl_id" id="empl_id" value="">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">No,Close</button>
-        <button type="submit" class="btn btn-warning">Yes! Upgrade</button>
-      </div>
-  </form>
-    </div>
-  </div>
-</div>
-
-
-    <!-- End_Modal -->
+   
 
     <!-- Modal -->
 <div class="modal modal-success fade in" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
