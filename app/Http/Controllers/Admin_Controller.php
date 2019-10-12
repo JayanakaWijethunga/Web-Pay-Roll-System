@@ -241,7 +241,7 @@ class Admin_Controller extends Controller
 
         $id=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id)->get();
-        return view('admin.admin_create_event',compact(['propic']));   
+        return view('events.event_page',compact(['propic']));   
 
     }
 

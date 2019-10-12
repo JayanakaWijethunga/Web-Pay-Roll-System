@@ -51,7 +51,7 @@ Route::get('adminmyprofile','Admin_Controller@MyProfile')->name('admin-myprofile
 Route::get('admin-editmyprofile','Admin_Controller@EditProPic')->name('admin-editmyprofile');
 Route::post('admin-myprofile','Admin_Controller@Update_Avatar')->name('admin-editmy_profile');
 
-Route::get('admin-create-event','Admin_Controller@ShowCreateEvents')->name('admin-create-calander-event');
+//Route::get('admin-create-event','Admin_Controller@ShowCreateEvents')->name('admin-create-calander-event');
 
 Route::get('sadmin-register', 'Super_admin\RegisterController@showRegistrationForm');
 Route::post('sadmin-register', 'Super_admin\RegisterController@register')->name('sadmin.registers');
@@ -113,3 +113,5 @@ Route::post('/admin-office-update/{id}', 'Super_Admin_Controller@updatesOffice')
 //Route::post('/canlogadmin/{id}','Super_Admin_Controller@CanLogAdmin');
 
 Route::post('/canlogadmin','Super_Admin_Controller@CanLogAdmin');
+
+Route::resource('/events','Calender\EventController');
