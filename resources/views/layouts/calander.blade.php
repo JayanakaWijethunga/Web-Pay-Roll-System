@@ -118,16 +118,18 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
  
-    <!--start calander-->
+      
     
     <section >
     <div class="container">
+        <center><h1 >Event Management</h1></center>
     <div class="jumbotron">
-        <div class="row">
-            <a href="/addevents" class="btn btn-success">Add Event</a>
+        <div class="row pull-center">
+            <a href="/addevents" class="btn btn-success" data-toggle="modal" data-target="#upgrade">Add Event</a>
             <a href="/displayevents" class="btn btn-primary">Edit Events</a>
             <a href="/deleteevents" class="btn btn-danger">Delete Event</a>
         </div>
+        <br><br>
         <div class="row">
            <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
@@ -143,11 +145,96 @@
             </div> 
         </div>
     </div>
+    
 </div>    
     </section>
 
 
     <!--end calander-->
+
+   <!-- Modal -->
+<div class="modal modal-success fade in" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title pull-center" id="myModalLabel">Upgrade Confirmation</h3>
+      </div>
+      <div class="modal-body">
+          
+          @section('upgrade_path')
+          
+          @show
+          
+          {{ csrf_field() }}
+          
+          <p>This Action will upgrade the access level.</p>
+          <input type="hidden" name="empl_id" id="empl_id" value="">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No,Close</button>
+        <button type="submit" class="btn btn-warning">Yes! Upgrade</button>
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
+
+
+    <!-- End_Modal -->
+
+    <!-- Modal -->
+<div class="modal modal-success fade in" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title pull-center" id="myModalLabel">Upgrade Confirmation</h3>
+        </div>
+        <div class="modal-body">
+            
+            <form method="POST" action="{{action('Calender\EventController@store')}}">
+                {{csrf_field()}}
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Enter the title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter the title">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Enter the Color</label>
+                    <div class="col-sm-10">
+                      <input type="color" class="form-control" id="color" name="color" placeholder="Enter the Color">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Enter start Date</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control" id="start_date" class="date" name="start_date" placeholder="Enter start Date">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Enter end Date</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control" id="end_date" class="date" name="end_date" placeholder="Enter end Date">
+                    </div>
+                  </div>
+                
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Add Event Data</button>
+                  </div>
+                </div>
+              </form>
+
+
+      </div>
+    </div>
+  </div>
 
 </div>
 </div>
@@ -174,5 +261,22 @@
 <script src="../dist/js/adminlte.min.js"></script>
 
 
+  
+  <script>
+      $('#upgrade').on('show.bs.modal', function (event) {
+        
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var getId = button.data("role") // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        
+        var modal = $(this)
+        
+        modal.find('.modal-body #empl_id').val(getId)
+        
+      });
+
+      
+      </script>
 </body>
 </html>

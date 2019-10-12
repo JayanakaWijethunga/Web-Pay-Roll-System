@@ -115,3 +115,5 @@ Route::post('/admin-office-update/{id}', 'Super_Admin_Controller@updatesOffice')
 Route::post('/canlogadmin','Super_Admin_Controller@CanLogAdmin');
 
 Route::resource('/events','Calender\EventController');
+
+Route::get('/displayevents','Calender\EventController@show');
