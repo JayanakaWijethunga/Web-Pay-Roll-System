@@ -183,14 +183,14 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Enter start Date</label>
                     <div class="col-sm-10">
-                      <input type="date" class="form-control" id="start_date" class="date" name="start_date" placeholder="Enter start Date">
+                      <input type="datetime-local" class="form-control" id="start_date" class="date" name="start_date" placeholder="Enter start Date">
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Enter end Date</label>
                     <div class="col-sm-10">
-                      <input type="date" class="form-control" id="end_date" class="date" name="end_date" placeholder="Enter end Date">
+                      <input type="datetime-local" class="form-control" id="end_date" class="date" name="end_date" placeholder="Enter end Date">
                     </div>
                   </div>
                 

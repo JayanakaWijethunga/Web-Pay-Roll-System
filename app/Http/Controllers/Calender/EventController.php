@@ -30,7 +30,7 @@ class EventController extends Controller
             //$enddate= $row->end_date." 24.00.00";
             $event[] = \Calendar::event(
             $row->title,
-            true,
+            false,
             new \dateTime($row->start_date),
             new \dateTime($row->end_date),
             $row->id,

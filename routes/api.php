@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/user_detail','Api\UserDetailController');
 
+Route::apiResource('/event','Api\CalenderController');
+
 Route::get('/user/image','Api\UserDetailController@getProfilePic');
 
 Route::post('/user/update_image','Api\UserDetailController@updateProfilePic');
