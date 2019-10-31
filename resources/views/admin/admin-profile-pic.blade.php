@@ -29,6 +29,12 @@
 <a href="{{ route('admin-myprofile') }}">
 @endsection
 
+@section('calander_event')
+<li class="">
+<a href="/events">
+<i class="fa fa-calendar"></i> <span>Event management</span></a></li>
+@endsection
+
 @section('functions01',"Manage Users")
 
 

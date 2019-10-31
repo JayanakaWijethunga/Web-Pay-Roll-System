@@ -94,6 +94,9 @@
 
         <i class="fa fa-user"></i> <span>My Profile</span></a></li>
 
+        @section('calander_event')
+        @show
+
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">

@@ -76,7 +76,7 @@
         <li class="header">Actions</li>
         <!-- Optionally, you can add icons to the links -->
         
-        <li class="active">
+        <li class="">
           @section('homes')
           @show
   
@@ -94,11 +94,11 @@
 
         <i class="fa fa-user"></i> <span>My Profile</span></a></li>
 
-        <li class="">
+        <li class="active">
         @section('calander_event')
         @show
 
-        <i class="fa fa-user"></i> <span>Event management</span></a></li>
+        <i class="fa fa-calendar"></i> <span>Event management</span></a></li>
 
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
@@ -116,25 +116,30 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
- 
-      
+  <div class="play content-wrapper">
+      <section class="content-header">
+      <center><h4 class='mains'>Event Management</h4></center>
+      </section>
     
-    <section >
+    <section class="content">
     <div class="container">
-        <center><h1 >Event Management</h1></center>
-    <div class="jumbotron">
-        <div class="row pull-center">
-            <a href="/addevents" class="btn btn-success" data-toggle="modal" data-target="#upgrade">Add Event</a>
-            <a href="/displayevents" class="btn btn-primary">Edit Events</a>
-            <a href="/deleteevents" class="btn btn-danger">Delete Event</a>
-        </div>
+       
+    <div class="">
+        
         <br><br>
         <div class="row">
            <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
-                  <div class="panel-heading" style="background: #2edda4; color: white;">
-                Event Calander
+                  <div class="panel-heading " style="background: #fff; color: #000;">
+                    
+                    
+                    
+                    <div class="text-right">
+
+                    <a href="/addevents" class="btn btn-success fa fa-plus" data-toggle="modal" data-target="#upgrade">Add Event</a>
+                    <a href="/displayevents" class="btn btn-primary fa fa-edit">Edit Events</a>
+                    <a href="/displayevents" class=" btn btn-danger fa fa-trash">Delete Events</a>
+                  </div>
                 </div>
                 <div class="panel-body">
                     @section('cal')
@@ -248,5 +253,18 @@
 
       
       </script>
+
+      <style>
+      h4 {
+	margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-weight: normal;
+	font-family: 'Ultra', sans-serif;   
+	font-size: 36px;
+	line-height: 42px;
+	text-transform: uppercase;
+	text-shadow: 0 2px white, 0 3px #777;
+}
+      </style>
 </body>
 </html>

@@ -96,7 +96,7 @@
           @section('calander_event')
           @show
   
-          <i class="fa fa-user"></i> <span>Event management</span></a></li>
+          <i class="fa fa-calendar"></i> <span>Event management</span></a></li>
 
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
