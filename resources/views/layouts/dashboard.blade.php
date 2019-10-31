@@ -9,6 +9,12 @@
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
@@ -132,15 +138,53 @@
                   <th>E-mail</th>
                 </tr>
 
-  @section('contents')
-  @show
+              @section('contents')
+              @show
+
+              </table>
 
 </div>
 </div> 
 </div>
+
+<div class="col-md-6">
+
+    <div class="box box-solid bg-green-gradient">
+        <div class="box-header">
+          <i class="fa fa-calendar"></i>
+
+          <h3 class="box-title">Calendar</h3>
+          <!-- tools box -->
+          <div class="pull-right box-tools">
+            <!-- button with a dropdown -->
+            
+            <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+            </button>
+          </div>
+          <!-- /. tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+          <!--The calendar -->
+          <div id="calendar" style="width: 100%"></div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-black">
+            {!! $calendar->calendar() !!}
+            {!! $calendar->script() !!}  
+              
+          </div>
+          
+             
+            
+
+
+
 </div>  
 
-</table>
+
 
 </section>
 </div>
@@ -160,8 +204,6 @@
 </div>
 
 
-
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 

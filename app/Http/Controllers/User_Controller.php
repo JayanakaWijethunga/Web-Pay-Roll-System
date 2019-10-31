@@ -11,7 +11,7 @@ use App\Employee_ot;
 use App\Employee_official;
 use DB;
 use Image;
-
+use App\Event;
 
 use App\Services\UserServices;
 use Illuminate\Http\Request;
@@ -34,11 +34,27 @@ class User_Controller extends Controller
             ->where('roles.name', 'user')
             ->get();
 
-        
+            $events=Event::all();
+            $event=[];
+            
+            foreach($events as $row){
+                //$enddate= $row->end_date." 24.00.00";
+                $event[] = \Calendar::event(
+                $row->title,
+                false,
+                new \dateTime($row->start_date),
+                new \dateTime($row->end_date),
+                $row->id,
+                [
+                    'color' => $row->color,
+                ]
+            );
+            }
+            $calendar= \Calendar::addEvents($event); 
 
         $id=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id)->get();
-        return view('user.home',compact(['propic','data']));
+        return view('user.home',compact(['calendar','events','propic','data']));
         
 
     }

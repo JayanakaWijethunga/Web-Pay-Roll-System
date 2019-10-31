@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 use App\User_detail;
 use App\Employee_financial;
@@ -31,10 +32,28 @@ class Admin_Controller extends Controller
             ->where('roles.name', 'admin')
             ->get();
 
+            $events=Event::all();
+            $event=[];
+            
+            foreach($events as $row){
+                //$enddate= $row->end_date." 24.00.00";
+                $event[] = \Calendar::event(
+                $row->title,
+                false,
+                new \dateTime($row->start_date),
+                new \dateTime($row->end_date),
+                $row->id,
+                [
+                    'color' => $row->color,
+                ]
+            );
+            }
+            $calendar= \Calendar::addEvents($event);
+
 
         $id=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id)->get();
-        return view('admin.home',compact(['propic','data']));
+        return view('admin.home',compact(['events','calendar','propic','data']));
 
     }
 

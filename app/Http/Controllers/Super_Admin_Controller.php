@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use Image;
+use App\Event;
 
 use App\Services\SuperAdminServices;
 
@@ -30,9 +31,27 @@ class Super_Admin_Controller extends Controller
             ->where('roles.name', 'super_admin')
             ->get();
 
+            $events=Event::all();
+            $event=[];
+            
+            foreach($events as $row){
+                //$enddate= $row->end_date." 24.00.00";
+                $event[] = \Calendar::event(
+                $row->title,
+                false,
+                new \dateTime($row->start_date),
+                new \dateTime($row->end_date),
+                $row->id,
+                [
+                    'color' => $row->color,
+                ]
+            );
+            }
+            $calendar= \Calendar::addEvents($event);
+
         $id=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id)->get();
-        return view('sadmin.home',compact(['propic','data']));
+        return view('sadmin.home',compact(['calendar','events','propic','data']));
 
     }
 
