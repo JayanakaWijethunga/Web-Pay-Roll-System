@@ -50,16 +50,18 @@
         <i class="glyphicon glyphicon-edit"></i>Update</a></td>
 
     <td>
-    <form action="{{action('Calender\EventController@destroy',$event['id'])}}" method="post" data-toggle="modal" data-target="#">
-         {{ csrf_field() }}
-         <input type="hidden" name="_method" value="DELETE" />
-         <button type="submit" class="btn btn-danger">
+    
+         <button type="button" class="btn btn-danger" data-role="{{ $event->id }}" data-toggle="modal" data-target="#deleteEvent">
             <i class="glyphicon glyphicon-trash"></i>Delete
          </button>
+
+         
     </form>
 </td>
     </tr>
         
 @endforeach
 @endsection
+
+
 

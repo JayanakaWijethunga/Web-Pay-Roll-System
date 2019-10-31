@@ -154,24 +154,37 @@
 </div>
 </div>
 
-<!-- Modal -->
-<div class="modal modal-success fade in" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h3 class="modal-title pull-center" id="myModalLabel">Upgrade Confirmation</h3>
-            </div>
-            <div class="modal-body">
-                
-                    @section('mod')
-                    @show   
-          </div>
+
+
+         <!-- Modal -->
+<div class="modal modal-danger fade in" id="deleteEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title pull-center" id="myModalLabel">Delete Confirmation</h3>
         </div>
+        <div class="modal-body">
+            
+            <form action="/deleteevent" method="post">  
+
+            
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="DELETE" />
+            
+            
+            <p>This Action will delete the record from the database, Permenantly</p>
+            <input type="hidden" name="empl_id" id="empl_id" value="">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">No,Close</button>
+          <button type="submit" class="btn btn-warning">Yes! Delete</button>
+        </div>
+    </form>
       </div>
-      
-      
-          <!-- End_Modal -->
+    </div>
+  </div>
 
           
 
@@ -187,25 +200,31 @@
   <div class="control-sidebar-bg"></div>
 </div>
 
-<script>
-        $('#edit').on('show.bs.modal', function (event) {
-          
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var getId = button.data("role") // Extract info from data-* attributes
-          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-          
-          var modal = $(this)
-          
-          modal.find('.modal-body #empl_id').val(getId)
-          
-        });
-</script>
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <script src="../dist/js/adminlte.min.js"></script>
+
+<script>
+
+      $('#deleteEvent').on('show.bs.modal', function (event) {
+        
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var getId = button.data("role") // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        
+        var modal = $(this)
+        
+        modal.find('.modal-body #empl_id').val(getId)
+        
+      });
+
+
+      
+</script>
+
 
 </body>
 </html>

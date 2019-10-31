@@ -150,11 +150,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $events = Event::find($id);
+        $events = Event::find($request->empl_id);
         $events->delete();
 
-        return redirect('events');
+        return back();
     }
 }
