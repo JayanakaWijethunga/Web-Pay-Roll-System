@@ -95,10 +95,10 @@
         <i class="fa fa-user"></i> <span>My Profile</span></a></li>
 
         <li class="">
-                @section('calander_event')
-                @show
-        
-                <i class="fa fa-user"></i> <span>Event management</span></a></li>
+        @section('calander_event')
+        @show
+
+        <i class="fa fa-user"></i> <span>Event management</span></a></li>
 
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
@@ -160,7 +160,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title pull-center" id="myModalLabel">Upgrade Confirmation</h3>
+          <h3 class="modal-title pull-center" id="myModalLabel">Add an Event</h3>
         </div>
         <div class="modal-body">
             

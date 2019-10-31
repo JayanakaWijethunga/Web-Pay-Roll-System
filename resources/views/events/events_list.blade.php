@@ -46,8 +46,8 @@
           <td>{{ $event->end_date}}</td>
         
         
-    <td><a href="{{action('Calender\EventController@edit',$event['id'])}}" class="btn btn-success" >
-        <i class="glyphicon glyphicon-edit"></i>Edit</a></td>
+    <td><a href="/edit_events/{{ $event->id }}" class="btn btn-success" >
+        <i class="glyphicon glyphicon-edit"></i>Update</a></td>
 
     <td>
     <form action="{{action('Calender\EventController@destroy',$event['id'])}}" method="post" data-toggle="modal" data-target="#">

@@ -92,6 +92,12 @@
 
         <i class="fa fa-user"></i> <span>My Profile</span></a></li>
 
+        <li class="">
+          @section('calander_event')
+          @show
+  
+          <i class="fa fa-user"></i> <span>Event management</span></a></li>
+
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
@@ -117,11 +123,14 @@
   <div class="play content-wrapper">
   <section class="content-header">
 
+    <h1 class="text-center">Update Event</h1>
   
   </section>
   <section class="content" >
 
-  
+    @section('contents')
+    @show
+
   </section>
   </div>
 

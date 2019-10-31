@@ -113,7 +113,7 @@ class EventController extends Controller
         $propic=DB::table("user_details")->where("id", $id1)->get();
 
         $events=Event::find($id);
-        //return view('events.events_edit',compact(['events','id','propic']));
+        return view('events.events_edit',compact(['events','id','propic']));
     }
 
     /**
@@ -125,7 +125,23 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'color' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        $events = Event::find($id);
+
+        $events->title=$request->input('title');
+        $events->color=$request->input('color');
+        $events->start_date=$request->input('start_date');
+        $events->end_date=$request->input('end_date');
+
+        $events->save();
+
+        return redirect('events');
     }
 
     /**
