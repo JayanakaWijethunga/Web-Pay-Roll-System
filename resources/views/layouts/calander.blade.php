@@ -16,8 +16,14 @@
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+  
+  <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+ 
+  <link rel="stylesheet" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
   
@@ -157,10 +163,9 @@
 
     <!--end calander-->
 
-   
 
     <!-- Modal -->
-<div class="modal modal-success fade in" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade in" id="upgrade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -171,39 +176,66 @@
             
             <form method="POST" action="{{action('Calender\EventController@store')}}">
                 {{csrf_field()}}
-                <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Enter the title</label>
-                  <div class="col-sm-10">
+                <div class="form-group">
+                  <label>Enter the title</label>
+                  <div class="input-group">
+                      <div class="input-group-addon">
+                            
+                          <i class="fa fa-header"></i>
+                        </div>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter the title">
                   </div>
                 </div>
 
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Enter the Color</label>
-                    <div class="col-sm-10">
-                      <input type="color" class="form-control" id="color" name="color" placeholder="Enter the Color">
+                <div class="form-group">
+                    <label>Enter the Color</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                              
+                            <i class="fa fa-paint-brush"></i>
+                          </div>
+                        <input type="text" class="form-control my-colorpicker1" id="color" name="color" placeholder="Enter the Color">
+                      <!--<input type="color" class="form-control" id="color" name="color" placeholder="Enter the Color">-->
                     </div>
                   </div>
 
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Enter start Date</label>
-                    <div class="col-sm-10">
-                      <input type="datetime-local" class="form-control" id="start_date" class="date" name="start_date" placeholder="Enter start Date">
+                  <div class="form-group">
+                      <label>Enter start Date:</label>
+      
+                      <div class="input-group">
+                          
+                        <div class="input-group-addon">
+                            
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="reservation" class="date" name="start_date" placeholder="Enter start Date">
+                      </div>
+                      <!-- /.input group -->
                     </div>
-                  </div>
 
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Enter end Date</label>
-                    <div class="col-sm-10">
-                      <input type="datetime-local" class="form-control" id="end_date" class="date" name="end_date" placeholder="Enter end Date">
-                    </div>
-                  </div>
+                    <div class="form-group">
+                        <label>Enter End Date:</label>
+        
+                        <div class="input-group">
+                            
+                          <div class="input-group-addon">
+                              
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right" id="reservation2" class="date" name="end_date" placeholder="Enter End Date">
+                        </div>
+                        <!-- /.input group -->
+                      </div>
+
+                  
                 
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Add Event Data</button>
-                  </div>
-                </div>
+                
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Add Event Data</button>
+                        </div>
+                   
+                 
               </form>
 
 
@@ -235,8 +267,15 @@
 
 <script src="../dist/js/adminlte.min.js"></script>
 
+<script src="../bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 
-  
+
+<script type="text/javascript" src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+<script src="../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
   <script>
       $('#upgrade').on('show.bs.modal', function (event) {
         
@@ -251,6 +290,10 @@
         
       });
 
+      
+      $('.my-colorpicker1').colorpicker();
+      $('#reservation').datetimepicker();
+      $('#reservation2').datetimepicker();
       
       </script>
 

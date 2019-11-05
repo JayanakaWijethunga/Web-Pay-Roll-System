@@ -17,8 +17,8 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('color');
-            $table->dateTimeTz('start_date');
-            $table->dateTimeTz('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->timestamps();
         });
     }

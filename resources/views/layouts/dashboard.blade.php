@@ -122,12 +122,28 @@
   <div class="content-wrapper">
     
       <section class="content">
+
+
+
+        
 <div class="row">
 <div class="col-md-6">
-<div class="box">
-          <div class="box-header with-border">
-              <h3 class="box-title">Current @yield('title')s</h3>
-            </div>
+  <div class="box">
+    <div class="box-header box-solid bg-green-gradient">
+      <i class="fa fa-user"></i>
+
+      <h3 class="box-title">Current @yield('title')s</h3>
+      <!-- tools box -->
+      <div class="pull-right box-tools">
+        <!-- button with a dropdown -->
+        
+        <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+        </button>
+      </div>
+      <!-- /. tools -->
+    </div>
           
           <div class="box-body">
               <table class="table table-bordered">
@@ -172,13 +188,14 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer text-black">
+          
             {!! $calendar->calendar() !!}
             {!! $calendar->script() !!}  
               
           </div>
           
              
-            
+        </div>           
 
 
 
