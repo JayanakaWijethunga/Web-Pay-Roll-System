@@ -32,7 +32,8 @@ class Admin_Controller extends Controller
             ->where('roles.name', 'admin')
             ->get();
 
-            $events=Event::all();
+            //$events=Event::all();
+            $events=DB::table("events")->where("user_role", "admin")->get();
             $event=[];
             
             foreach($events as $row){

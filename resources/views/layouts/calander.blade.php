@@ -176,6 +176,22 @@
             
             <form method="POST" action="{{action('Calender\EventController@store')}}">
                 {{csrf_field()}}
+
+                <div class="form-group">
+                  <label>Select User Role</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                          
+                        <i class="fa fa-user"></i>
+                      </div>
+                  <select class="form-control" name="user_role">
+                    <option disabled="disabled" selected="selected">Select User Role</option>
+                      @foreach ($roles as $role)
+                    <option>{{ $role->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+
                 <div class="form-group">
                   <label>Enter the title</label>
                   <div class="input-group">
@@ -188,13 +204,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Enter the Color</label>
+                    <label>Select a Colour</label>
                     <div class="input-group">
                         <div class="input-group-addon">
                               
                             <i class="fa fa-paint-brush"></i>
                           </div>
-                        <input type="text" class="form-control my-colorpicker1" id="color" name="color" placeholder="Enter the Color">
+                        <input type="text" class="form-control my-colorpicker1" id="color" name="color" placeholder="Select a Colour">
                       <!--<input type="color" class="form-control" id="color" name="color" placeholder="Enter the Color">-->
                     </div>
                   </div>

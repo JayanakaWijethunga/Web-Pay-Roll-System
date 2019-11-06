@@ -52,6 +52,29 @@
                  
 
                         <div class="form-group">
+                            <label>Select User Role</label>
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                    
+                                  <i class="fa fa-user"></i>
+                                </div>
+                            <select class="form-control" value="{{$events->user_role}}" name="user_role">
+                             
+                              
+                              @foreach($roles as $role)
+                                    
+                              @if( $role->name == $events->user_role )
+                              <option value="{{ $role->name }}" selected="selected"> {{ $role->name }}</option>
+                              @else
+                              <option value="{{ $role->name }}"> {{ $role->name }}</option>
+                              @endif
+
+                              @endforeach
+
+                            </select>
+                          </div>
+
+                        <div class="form-group">
                             <label>Enter the title</label>
                             <div class="input-group">
                                 <div class="input-group-addon">

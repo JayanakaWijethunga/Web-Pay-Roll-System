@@ -122,7 +122,7 @@
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
-                          <h3 class="box-title">Event List</h3>
+                          <h3 class="box-title">Event Participants</h3>
             
         
                         </div>
@@ -130,15 +130,9 @@
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
-                                    <th>ID</th>
-                                    <th>Assigned Role</th>
-                                    <th>Title</th>
-                                    <th>Color</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                    <th>Participant</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    
                             </tr>
                             
                             @section('cont')
@@ -158,36 +152,7 @@
 
 
 
-         <!-- Modal -->
-<div class="modal modal-danger fade in" id="deleteEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title pull-center" id="myModalLabel">Delete Confirmation</h3>
-        </div>
-        <div class="modal-body">
-            
-            <form action="/deleteevent" method="post">  
-
-            
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="DELETE" />
-            
-            
-            <p>This Action will delete the record from the database, Permenantly</p>
-            <input type="hidden" name="empl_id" id="empl_id" value="">
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">No,Close</button>
-          <button type="submit" class="btn btn-warning">Yes! Delete</button>
-        </div>
-    </form>
-      </div>
-    </div>
-  </div>
-
+        
           
 
 <footer class="main-footer">
@@ -210,19 +175,7 @@
 
 <script>
 
-      $('#deleteEvent').on('show.bs.modal', function (event) {
-        
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var getId = button.data("role") // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        
-        var modal = $(this)
-        
-        modal.find('.modal-body #empl_id').val(getId)
-        
-      });
-
+      
 
       
 </script>

@@ -43,8 +43,8 @@ class EventController extends Controller
 
         $id1=Auth::user()->id;
         $propic=DB::table("user_details")->where("id", $id1)->get();
-
-        return view('events.event_page',compact(['events','calendar','propic']));
+        $roles=DB::table("roles")->get();
+        return view('events.event_page',compact(['events','calendar','propic','roles']));
     }
 
     /**
@@ -66,6 +66,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'user_role' => 'required',
             'title' => 'required',
             'color' => 'required',
             'start_date' => 'required',
@@ -74,6 +75,7 @@ class EventController extends Controller
 
         $events = new Event;
 
+        $events->user_role=$request->input('user_role');
         $events->title=$request->input('title');
         $events->color=$request->input('color');
         $events->start_date=$request->input('start_date');
@@ -100,6 +102,21 @@ class EventController extends Controller
         return view('events.events_list',compact(['events','propic']));
     }
 
+    public function showList($role){
+
+        $id1=Auth::user()->id;
+        $propic=DB::table("user_details")->where("id", $id1)->get();
+
+        $data = DB::table('role_users')
+            ->join('users','role_users.user_id' , '=', 'users.id')
+            ->join('roles', 'role_users.role_id', '=', 'roles.id')
+            ->where('roles.name', $role)
+            ->get();
+        
+            return view('events.events_emps',compact(['data','propic']));
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -113,7 +130,8 @@ class EventController extends Controller
         $propic=DB::table("user_details")->where("id", $id1)->get();
 
         $events=Event::find($id);
-        return view('events.events_edit',compact(['events','id','propic']));
+        $roles=DB::table("roles")->get();
+        return view('events.events_edit',compact(['events','id','propic','roles']));
     }
 
     /**
@@ -126,6 +144,8 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
+
+            'user_role' => 'required',
             'title' => 'required',
             'color' => 'required',
             'start_date' => 'required',
@@ -134,6 +154,7 @@ class EventController extends Controller
 
         $events = Event::find($id);
 
+        $events->user_role=$request->input('user_role');
         $events->title=$request->input('title');
         $events->color=$request->input('color');
         $events->start_date=$request->input('start_date');

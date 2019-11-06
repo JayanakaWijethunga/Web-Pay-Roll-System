@@ -31,7 +31,8 @@ class Super_Admin_Controller extends Controller
             ->where('roles.name', 'super_admin')
             ->get();
 
-            $events=Event::all();
+            //$events=Event::all();
+            $events=DB::table("events")->where("user_role", "super_admin")->get();
             $event=[];
             
             foreach($events as $row){

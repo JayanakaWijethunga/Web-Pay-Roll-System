@@ -34,7 +34,8 @@ class User_Controller extends Controller
             ->where('roles.name', 'user')
             ->get();
 
-            $events=Event::all();
+            //$events=Event::all();
+            $events=DB::table("events")->where("user_role", "user")->get();
             $event=[];
             
             foreach($events as $row){
