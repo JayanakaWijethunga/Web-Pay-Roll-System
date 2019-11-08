@@ -28,7 +28,6 @@
 
   <header class="main-header">
 
-
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>@yield('utypemin')</b>CP</span>
@@ -96,14 +95,15 @@
             @section('calander_event')
             @show
             
-
+        @yield('sidebarmenu')
         <li class=""><a href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
             </form>
-        <i class="fa fa-sign-out"></i> <span>Sign-Out</span></a></li>
+          <i class="fa fa-sign-out"></i> <span>Sign-Out</span></a>
+        </li>
         
       </ul>
 

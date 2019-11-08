@@ -119,3 +119,36 @@ Route::get('/edit_events/{id}', 'Calender\EventController@edit')->name('event.ed
 Route::delete('/deleteevent','Calender\EventController@destroy');
 Route::get('/displayevents','Calender\EventController@show');
 Route::get('/edit_emps/{role}', 'Calender\EventController@showList')->name('event.showlist');
+
+//new routes
+
+Route::resource('salary_groups', 'SalaryGroupsController');
+Route::post('salary_groups_mass_destroy', ['uses' => 'SalaryGroupsController@massDestroy', 'as' => 'salary_groups.mass_destroy']);
+Route::post('salary_groups_restore/{id}', ['uses' => 'SalaryGroupsController@restore', 'as' => 'salary_groups.restore']);
+Route::delete('salary_groups_perma_del/{id}', ['uses' => 'SalaryGroupsController@perma_del', 'as' => 'salary_groups.perma_del']);
+Route::resource('employees', 'EmployeesController');
+Route::post('employees_mass_destroy', ['uses' => 'EmployeesController@massDestroy', 'as' => 'employees.mass_destroy']);
+Route::post('employees_restore/{id}', ['uses' => 'EmployeesController@restore', 'as' => 'employees.restore']);
+Route::delete('employees_perma_del/{id}', ['uses' => 'EmployeesController@perma_del', 'as' => 'employees.perma_del']);
+Route::resource('import_attendances', 'ImportAttendancesController');
+
+Route::resource('employee_funds', 'EmployeeFundsController');
+Route::post('import_attendances/import', 'ImportAttendancesController@import');
+Route::post('employee_funds_mass_destroy', ['uses' => 'EmployeeFundsController@massDestroy', 'as' => 'employee_funds.mass_destroy']);
+Route::post('employee_funds_restore/{id}', ['uses' => 'EmployeeFundsController@restore', 'as' => 'employee_funds.restore']);
+Route::delete('employee_funds_perma_del/{id}', ['uses' => 'EmployeeFundsController@perma_del', 'as' => 'employee_funds.perma_del']);
+Route::resource('salaries', 'SalaryController');
+Route::get('salaries/approve/{id}',['uses' => 'SalaryController@approve', 'as' => 'salaries.approve']);
+Route::post('getSalaries', ['uses' => 'SalaryController@getSalaries', 'as' => 'salaries.getSalaries']);
+
+        // Allowances
+        Route::delete('allowances/destroy', 'AllowancesController@massDestroy')->name('allowances.massDestroy');
+        Route::resource('allowances', 'AllowancesController');
+    
+        // Deductions
+        Route::delete('deductions/destroy', 'DeductionsController@massDestroy')->name('deductions.massDestroy');
+        Route::resource('deductions', 'DeductionsController');
+    
+        // Advances
+        Route::delete('advances/destroy', 'AdvancesController@massDestroy')->name('advances.massDestroy');
+        Route::resource('advances', 'AdvancesController');

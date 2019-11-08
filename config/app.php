@@ -56,6 +56,12 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'date_format' => 'Y-m-d',
+    'date_format_js' => 'yy-mm-dd',
+    'date_format_moment' => 'YYYY-MM-DD',
+    'time_format_moment' => 'HH:mm:ss',
+    'datetime_format_moment' => 'YYYY-MM-DD HH:mm:ss',
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -177,6 +183,9 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
 
+        //Excel
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
     ],
 
     /*
@@ -229,7 +238,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
