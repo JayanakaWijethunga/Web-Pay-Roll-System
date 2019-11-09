@@ -95,7 +95,7 @@
 
 @section('javascript') 
     <script>
-            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.salary_groups.mass_destroy') }}'; @endif
+            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('salary_groups.mass_destroy') }}'; @endif
 
     </script>
 @endsection
