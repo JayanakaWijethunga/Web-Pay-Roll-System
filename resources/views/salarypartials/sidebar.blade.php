@@ -47,12 +47,7 @@
                 </a>
             </li>
             
-            <li>
-                <a href="{{ route('import_attendances.index') }}">
-                    <i class="fa fa-calendar"></i>
-                    <span>Generate Salary</span>
-                </a>
-            </li>
+            
             
             <li>
                 <a href="{{ route('employee_funds.index') }}">
@@ -64,7 +59,7 @@
             <li>
                 <a href="{{ route('salaries.index') }}">
                     <i class="fa fa-money"></i>
-                    <span>Salaries</span>
+                    <span>Generate Salary</span>
                 </a>
             </li>
             

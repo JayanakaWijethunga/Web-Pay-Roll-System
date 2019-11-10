@@ -5,9 +5,6 @@
     <h3 class="page-title">Salary groups</h3>
     <p>
         <a href="{{ route('salary_groups.create') }}" class="btn btn-primary">Add new</a>
-        @if (Auth::user()->role[0]->name === "admin")
-            <a href="{{ route('salary_groups.create') }}" class="btn btn-primary">{{ Auth::user()->role[0]->name}}</a>
-        @endif
     </p>
 
     <p>
