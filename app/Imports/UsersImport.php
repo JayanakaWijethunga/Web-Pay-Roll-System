@@ -19,7 +19,8 @@ class UsersImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        $employee = Employee::find($row['employee_num']);
+        //$employee = Employee::find($row['employee_num']);
+        $employee = Employee::where('employee_no', $row['employee_num'])->first();
         $epf = EmployeeFund::where('fund_name', 'epf')->first();
         $etf = EmployeeFund::where('fund_name', 'etf')->first();
         

@@ -81,6 +81,41 @@
 
 </div>
 </div>
+
+<div class="container  col-xs-4">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Import Attendance
+        </div>
+
+        <div class="panel-body">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+            Upload Validation Error<br><br>
+            <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+            </div>
+        @endif
+
+            <div class="container">
+                <form action="/import_attendances/import" enctype="multipart/form-data"  method="post">
+                    @csrf
+                    <input type="file" name="file"  style="margin-top: 10px" >
+                    <input class="btn btn-primary" type ="submit" value = "Genarate Salary" style="margin-top: 10px">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
 <div class="container  col-xs-12">
 <div class="panel panel-default">
         <div class="panel-heading">
@@ -121,15 +156,16 @@
 
                                 <td>
                                     @if(!$salary->approved)
-                                    <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary">Approve</a>
-
+                                    @if (Auth::user()->role[0]->name === "admin")
+                                        <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary">Approve</a>
+                                    @endif
                                     <a href="{{ route('salaries.edit',[$salary->id]) }}" class="btn btn-xs btn-primary">Edit</a>
-
+                                    <a href="{{ route('salaries.salarysheet',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Salary Sheet</a>
                                     @else
+                                    
                                     <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Approve</a>
-
                                     <a href="{{ route('salaries.edit',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Edit</a>
-
+                                    <a href="{{ route('salaries.salarysheet',[$salary->id]) }}" class="btn btn-xs btn-primary">Salary Sheet</a>
                                     @endif
                                 </td>
 

@@ -152,3 +152,5 @@ Route::post('getSalaries', ['uses' => 'SalaryController@getSalaries', 'as' => 's
         // Advances
         Route::delete('advances/destroy', 'AdvancesController@massDestroy')->name('advances.massDestroy');
         Route::resource('advances', 'AdvancesController');
+
+Route::get('salaries/generate-salary-sheet/{id}',['uses' => 'SalaryController@generateSalarySheet', 'as' => 'salaries.salarysheet']);

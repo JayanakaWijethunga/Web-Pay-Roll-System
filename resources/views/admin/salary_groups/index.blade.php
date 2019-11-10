@@ -5,7 +5,9 @@
     <h3 class="page-title">Salary groups</h3>
     <p>
         <a href="{{ route('salary_groups.create') }}" class="btn btn-primary">Add new</a>
-        
+        @if (Auth::user()->role[0]->name === "admin")
+            <a href="{{ route('salary_groups.create') }}" class="btn btn-primary">{{ Auth::user()->role[0]->name}}</a>
+        @endif
     </p>
 
     <p>
@@ -51,7 +53,7 @@
                                 <td>{{ $salary_group->salary }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
-                                                                        {!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'POST',
                                         'onsubmit' => "return confirm('".trans("Are you sure")."');",
@@ -71,7 +73,7 @@
                                 <td>
                                     <a href="{{ route('salary_groups.show',[$salary_group->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     <a href="{{ route('salary_groups.edit',[$salary_group->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-{!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("Are you sure")."');",
