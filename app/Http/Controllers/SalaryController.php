@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\UpdateSalariesRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class SalaryController extends Controller
 {
@@ -62,7 +63,6 @@ class SalaryController extends Controller
         $employeeSalary = EmployeeAttendance::findOrFail($id);
         $data = $request->all();
 
-
         $employee = $employeeSalary->employee;
 
         $epf = EmployeeFund::where('fund_name', 'epf')->first();
@@ -90,5 +90,34 @@ class SalaryController extends Controller
         return view('admin.salaries.index', compact('salaries'));
     }
 
+    public function generateSalarySheet($id)
+    {
+        $employeeSalary = EmployeeAttendance::findOrFail($id);
+        $employee = Employee::where('employee_no', $employeeSalary->employee_id)->first();
 
+        //dd($employeeSalary->ot);
+        $data = [
+            'title' => 'Salary Sheet',
+            'month' => $employeeSalary->month,
+            'year' => $employeeSalary->year,
+            'attendance' => $employeeSalary->attendance,
+            'othours' => $employeeSalary->ot_hours,
+            'ot' => number_format((float)$employeeSalary->ot, 2, '.', ''),
+            'allowances' => number_format((float)$employeeSalary->allowances, 2, '.', ''),
+            'deductions' => number_format((float)$employeeSalary->deductions, 2, '.', ''),
+            'advances' => number_format((float)$employeeSalary->advances, 2, '.', ''),
+            'epf' => number_format((float)$employeeSalary->epf, 2, '.', ''),
+            'etf' => number_format((float)$employeeSalary->etf, 2, '.', ''),
+            'paye' => number_format((float)$employeeSalary->paye, 2, '.', ''),
+            'total' => number_format((float)$employeeSalary->total, 2, '.', ''),
+            'firstname' => $employee->first_name,
+            'lastname' => $employee->last_name,
+            'empno' => $employeeSalary->employee_id,
+            'basic' => number_format((float)$employee->salary_group->salary, 2, '.', ''),
+        ];
+        $pdf = PDF::loadView('salarySheet', $data);
+
+        return $pdf->download('salarysheet.pdf');
+
+    }
 }

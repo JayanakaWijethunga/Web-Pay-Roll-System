@@ -4,8 +4,9 @@
 @section('content')
     <h3 class="page-title">@lang('quickadmin.employee-funds.title')</h3>
     <p>
+    @if (Auth::user()->role[0]->name === "admin")
         <a href="{{ route('employee_funds.create') }}" class="btn btn-primary">@lang('quickadmin.qa_add_new')</a>
-        
+    @endif
     </p>
     <p>
         <ul class="list-inline">
@@ -66,14 +67,17 @@
                                 @else
                                 <td>
                                     <a href="{{ route('employee_funds.show',[$employee_fund->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @if (Auth::user()->role[0]->name === "admin")
                                     <a href="{{ route('employee_funds.edit',[$employee_fund->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-{!! Form::open(array(
+
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
                                         'route' => ['employee_funds.destroy', $employee_fund->id])) !!}
                                     {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                     {!! Form::close() !!}
+                                    @endif
                                 </td>
                                 @endif
                             </tr>
@@ -91,7 +95,8 @@
 
 @section('javascript') 
     <script>
+    @if (Auth::user()->role[0]->name === "admin")
             @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('employee_funds.mass_destroy') }}'; @endif
-
+            @endif
     </script>
 @endsection
