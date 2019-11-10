@@ -15,7 +15,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('cruds.advance.title_singular') }} {{ trans('global.list') }}
+                Advance List
                 </div>
                 <div class="panel-body">
 
@@ -66,11 +66,11 @@
                                         <td>
 
                                                 <a class="btn btn-xs btn-primary" href="{{ route('advances.show', $advance->id) }}">
-                                                    {{ trans('global.view') }}
+                                                    View
                                                 </a>
 
                                                 <a class="btn btn-xs btn-info" href="{{ route('advances.edit', $advance->id) }}">
-                                                    {{ trans('global.edit') }}
+                                                    Edit
                                                 </a>
 
 

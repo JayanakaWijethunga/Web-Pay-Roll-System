@@ -1,13 +1,13 @@
 @extends('app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.salary-groups.title')</h3>
+    <h3 class="page-title">Salary Groups</h3>
     
     {!! Form::model($salary_group, ['method' => 'PUT', 'route' => ['salary_groups.update', $salary_group->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_edit')
+            Edit
         </div>
 
         <div class="panel-body">

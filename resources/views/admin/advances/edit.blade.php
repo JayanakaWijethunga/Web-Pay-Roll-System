@@ -7,7 +7,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('global.edit') }} {{ trans('cruds.advance.title_singular') }}
+                Edit Advance
                 </div>
                 <div class="panel-body">
 

@@ -9,8 +9,8 @@
 
     <p>
         <ul class="list-inline">
-            <li><a href="{{ route('salary_groups.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-            <li><a href="{{ route('salary_groups.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
+            <li><a href="{{ route('salary_groups.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">All</a></li> |
+            <li><a href="{{ route('salary_groups.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">Trash</a></li>
         </ul>
     </p>
 
@@ -68,8 +68,8 @@
                                 </td>
                                 @else
                                 <td>
-                                    <a href="{{ route('salary_groups.show',[$salary_group->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    <a href="{{ route('salary_groups.edit',[$salary_group->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('salary_groups.show',[$salary_group->id]) }}" class="btn btn-xs btn-primary">View</a>
+                                    <a href="{{ route('salary_groups.edit',[$salary_group->id]) }}" class="btn btn-xs btn-info">Edit</a>
                                     {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',

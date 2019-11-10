@@ -15,16 +15,11 @@
                         <table class="table table-bordered table-striped">
                             <tbody>
                                 <tr>
-                                    <th>
-                                        {{ trans('cruds.advance.fields.id') }}
-                                    </th>
-                                    <td>
-                                        {{ $advance->id }}
-                                    </td>
+                                    
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.advance.fields.employee') }}
+                                        Employee Id
                                     </th>
                                     <td>
                                         {{ $advance->employee->employee_no ?? '' }}
@@ -32,7 +27,7 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.advance.fields.year') }}
+                                        Year
                                     </th>
                                     <td>
                                         {{ App\Advance::YEAR_SELECT[$advance->year] ?? '' }}
@@ -40,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.advance.fields.month') }}
+                                        Month
                                     </th>
                                     <td>
                                         {{ App\Advance::MONTH_SELECT[$advance->month] ?? '' }}
@@ -48,7 +43,7 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.advance.fields.amount') }}
+                                        Amount
                                     </th>
                                     <td>
                                         ${{ $advance->amount }}
@@ -57,7 +52,7 @@
                             </tbody>
                         </table>
                         <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">
-                            {{ trans('global.back_to_list') }}
+                            Back to list
                         </a>
                     </div>
 

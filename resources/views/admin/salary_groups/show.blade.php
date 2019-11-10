@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.salary-groups.title')</h3>
+    <h3 class="page-title">Salary Groups</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_view')
+            View
         </div>
 
         <div class="panel-body table-responsive">
@@ -13,19 +13,19 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.salary-groups.fields.name')</th>
+                            <th>Name</th>
                             <td field-key='name'>{{ $salary_group->name }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.salary-groups.fields.maximum-leave-days')</th>
+                            <th>Maximum Leave Days</th>
                             <td field-key='maximum_leave_days'>{{ $salary_group->maximum_leave_days }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.salary-groups.fields.ot-rate')</th>
+                            <th>Ot Rate</th>
                             <td field-key='ot_rate'>{{ $salary_group->ot_rate }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.salary-groups.fields.salary')</th>
+                            <th>Salary</th>
                             <td field-key='salary'>{{ $salary_group->salary }}</td>
                         </tr>
                     </table>
@@ -43,13 +43,13 @@
 <table class="table table-bordered table-striped {{ count($employees) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.employees.fields.first-name')</th>
-                        <th>@lang('quickadmin.employees.fields.last-name')</th>
-                        <th>@lang('quickadmin.employees.fields.birthday')</th>
-                        <th>@lang('quickadmin.employees.fields.contact-no')</th>
-                        <th>@lang('quickadmin.employees.fields.employee-no')</th>
-                        <th>@lang('quickadmin.employees.fields.epf-no')</th>
-                        <th>@lang('quickadmin.employees.fields.salary-group')</th>
+            <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Birthday</th>
+                        <th>Contact No</th>
+                        <th>Employee No</th>
+                        <th>EPF No</th>
+                        <th>Salary Group</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else

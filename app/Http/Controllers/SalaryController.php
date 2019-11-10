@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Employee;
 use App\EmployeeAttendance;
 use App\EmployeeFund;
