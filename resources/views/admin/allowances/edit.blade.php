@@ -55,6 +55,16 @@
                                 </p>
                             @endif
                         </div>
+                        <div class="form-group {{ $errors->has('allowance_type') ? 'has-error' : '' }}">
+                            <label for="allowance_type">Allowance type*</label>
+                            <input type="varchar" id="allowance_type" name="allowance_type" class="form-control" value="{{ old('allowance_type', isset($allowance) ? $allowance->allowance_type : '') }}" step="0.01" required>
+                            @if($errors->has('allowance_type'))
+                                <p class="help-block">
+                                    {{ $errors->first('allowance_type') }}
+                                </p>
+                            @endif
+                            
+                        </div>
                         <div class="form-group {{ $errors->has('amount') ? 'has-error' : '' }}">
                             <label for="amount">{{ trans('cruds.allowance.fields.amount') }}*</label>
                             <input type="number" id="amount" name="amount" class="form-control" value="{{ old('amount', isset($allowance) ? $allowance->amount : '') }}" step="0.01" required>
@@ -64,7 +74,7 @@
                                 </p>
                             @endif
                             <p class="helper-block">
-                                {{ trans('cruds.allowance.fields.amount_helper') }}
+                            {{ trans('cruds.allowance.fields.amount_helper') }}
                             </p>
                         </div>
                         <div>

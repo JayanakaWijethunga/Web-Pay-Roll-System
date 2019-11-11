@@ -48,6 +48,14 @@
                                 </tr>
                                 <tr>
                                     <th>
+                                       Allowance type
+                                    </th>
+                                    <td>
+                                        {{ $allowance->allowance_type }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
                                         {{ trans('cruds.allowance.fields.amount') }}
                                     </th>
                                     <td>

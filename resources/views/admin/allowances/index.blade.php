@@ -38,6 +38,9 @@
                                         Month
                                     </th>
                                     <th>
+                                        Allowance type
+                                    </th>
+                                    <th>
                                         Amount
                                     </th>
                                     <th>
@@ -62,8 +65,12 @@
                                             {{ App\Allowance::MONTH_SELECT[$allowance->month] ?? '' }}
                                         </td>
                                         <td>
+                                            {{ $allowance->allowance_type ?? '' }}
+                                        </td>
+                                        <td>
                                             {{ $allowance->amount ?? '' }}
                                         </td>
+                                       
                                         <td>
                                                 <a class="btn btn-xs btn-primary" href="{{ route('allowances.show', $allowance->id) }}">
                                                     {{ trans('global.view') }}

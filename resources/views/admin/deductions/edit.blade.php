@@ -55,6 +55,16 @@
                                 </p>
                             @endif
                         </div>
+                        <div class="form-group {{ $errors->has('deduction_type') ? 'has-error' : '' }}">
+                            <label for="deduction_type">Deduction_type*</label>
+                            <input type="varchar" id="deduction_type" name="deduction_type" class="form-control" value="{{ old('deduction_type', isset($deduction) ? $deduction->deduction_type : '') }}" step="0.01" required>
+                            @if($errors->has('deduction_type'))
+                                <p class="help-block">
+                                    {{ $errors->first('deduction_type') }}
+                                </p>
+                            @endif
+                           
+                        </div>
                         <div class="form-group {{ $errors->has('amount') ? 'has-error' : '' }}">
                             <label for="amount">{{ trans('cruds.deduction.fields.amount') }}*</label>
                             <input type="number" id="amount" name="amount" class="form-control" value="{{ old('amount', isset($deduction) ? $deduction->amount : '') }}" step="0.01" required>

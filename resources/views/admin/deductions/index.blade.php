@@ -37,7 +37,13 @@
                                         Month
                                     </th>
                                     <th>
+                                        Deduction type
+                                    </th>
+                                    <th>
                                         amount
+                                    </th>
+                                    <th>
+                                        Deduction type
                                     </th>
                                     <th>
                                         &nbsp;
@@ -59,6 +65,9 @@
                                         </td>
                                         <td>
                                             {{ App\Deduction::MONTH_SELECT[$deduction->month] ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $deduction->deduction_type ?? '' }}
                                         </td>
                                         <td>
                                             {{ $deduction->amount ?? '' }}

@@ -25,6 +25,7 @@ class Allowance extends Model
         'updated_at',
         'deleted_at',
         'employee_id',
+        'allowance_type',
     ];
 
     const MONTH_SELECT = [

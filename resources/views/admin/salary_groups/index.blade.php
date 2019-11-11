@@ -3,7 +3,7 @@
 
 @section('content')
     <h3 class="page-title">Salary groups</h3>
-    <p>
+    <p> 
         <a href="{{ route('salary_groups.create') }}" class="btn btn-primary">Add new</a>
     </p>
 

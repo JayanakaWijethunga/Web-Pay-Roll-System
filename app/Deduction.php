@@ -25,6 +25,7 @@ class Deduction extends Model
         'updated_at',
         'deleted_at',
         'employee_id',
+        'deduction_type',
     ];
 
     const MONTH_SELECT = [

@@ -100,17 +100,21 @@
             </ul>
             </div>
         @endif
+        
 
             <div class="container">
+           
                 <form action="/import_attendances/import" enctype="multipart/form-data"  method="post">
                     @csrf
                     
                     <input type="file" name="file"  style="margin-top: 10px" >
-                    @if (Auth::user()->role[0]->name === "user")
+                    
                     <input class="btn btn-primary" type ="submit" value = "Genarate Salary" style="margin-top: 10px">
-                    @endif
+                   
                 </form>
+               
             </div>
+           
         </div>
 
     </div>
@@ -159,10 +163,10 @@
                                     @if (Auth::user()->role[0]->name === "admin")
                                         <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary">Approve</a>
                                     @endif
-                                    @if (Auth::user()->role[0]->name === "user")
+                                  
                                     <a href="{{ route('salaries.edit',[$salary->id]) }}" class="btn btn-xs btn-primary">Edit</a>
                                     <a href="{{ route('salaries.salarysheet',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Salary Sheet</a>
-                                    @endif
+                                 
                                     @else
                                     
                                     <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Approve</a>

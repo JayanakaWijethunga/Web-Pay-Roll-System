@@ -48,6 +48,14 @@
                                 </tr>
                                 <tr>
                                     <th>
+                                       Deduction type
+                                    </th>
+                                    <td>
+                                        {{ $deduction->deduction_type }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
                                         {{ trans('cruds.deduction.fields.amount') }}
                                     </th>
                                     <td>
