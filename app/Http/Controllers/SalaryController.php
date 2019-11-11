@@ -78,7 +78,7 @@ class SalaryController extends Controller
         $data['total'] = $total;
 
         $employeeSalary->update($data);
-        return redirect()->route('admin.salaries.index');
+        return redirect()->route('salaries.index');
     }
 
     public function getSalaries(Request $request)

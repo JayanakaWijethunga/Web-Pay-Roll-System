@@ -104,8 +104,11 @@
             <div class="container">
                 <form action="/import_attendances/import" enctype="multipart/form-data"  method="post">
                     @csrf
+                    
                     <input type="file" name="file"  style="margin-top: 10px" >
+                    @if (Auth::user()->role[0]->name === "user")
                     <input class="btn btn-primary" type ="submit" value = "Genarate Salary" style="margin-top: 10px">
+                    @endif
                 </form>
             </div>
         </div>
