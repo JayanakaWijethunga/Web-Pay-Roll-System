@@ -42,9 +42,7 @@
                                     <th>
                                         amount
                                     </th>
-                                    <th>
-                                        Deduction type
-                                    </th>
+                                    
                                     <th>
                                         &nbsp;
                                     </th>
