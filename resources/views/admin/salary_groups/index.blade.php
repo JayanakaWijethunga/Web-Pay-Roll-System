@@ -15,10 +15,7 @@
     </p>
 
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Salary Group List
-        </div>
+  
 
         <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped {{ count($salary_groups) > 0 ? 'datatable' : '' }}  @if ( request('show_deleted') != 1 ) dt-select @endif">
