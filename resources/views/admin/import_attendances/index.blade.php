@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+
 <div class="form-group col-xs-12">
     <h3 class="page-title" style="margin-top: 10px ,algin: center, text:bold" >Generate Salary</h3>
     

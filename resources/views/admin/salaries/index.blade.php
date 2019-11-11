@@ -116,9 +116,6 @@
     </div>
 </div>
 
-
-
-
 <div class="container  col-xs-12">
 <div class="panel panel-default">
         <div class="panel-heading">
@@ -162,8 +159,10 @@
                                     @if (Auth::user()->role[0]->name === "admin")
                                         <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary">Approve</a>
                                     @endif
+                                    @if (Auth::user()->role[0]->name === "user")
                                     <a href="{{ route('salaries.edit',[$salary->id]) }}" class="btn btn-xs btn-primary">Edit</a>
                                     <a href="{{ route('salaries.salarysheet',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Salary Sheet</a>
+                                    @endif
                                     @else
                                     
                                     <a href="{{ route('salaries.approve',[$salary->id]) }}" class="btn btn-xs btn-primary disabled">Approve</a>
